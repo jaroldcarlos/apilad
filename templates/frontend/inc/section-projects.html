@@ -1,0 +1,76 @@
+{% load i18n %}
+{% load static %}
+
+<section class="section pb-0">
+  <div class="container">
+    <h2 class="h5 section-title">{% trans "Proyectos" %}</h2>
+    <div class="row">
+      <div class="col-lg-4 mb-5">
+        <div class="card">
+          <div class="post-slider slider-sm">
+            <img src="{% static 'frontend/images/proyecto_teatro.jpg' %}" class="card-img-top" alt="post-thumb">
+          </div>
+          <div class="card-body">
+            <h3 class="h4 mb-3"><a class="post-title" href="">IgualArte: Teatro e inclusión</a></h3>
+            <p>El Proyecto IgualArte: Teatro e Inclusión es una herramienta para aprender ...</p>
+            <p>{% trans "Documentos:" %}</p>
+            <ul class="card-meta list-inline">
+              <li class="list-inline-item">
+                <ul class="card-meta-tag list-inline">
+                  <li class="list-inline-item"><a target="_BLANK" href="{% static 'frontend/pdf/Ficha_teatro.pdf' %}">{% trans "Ficha" %}</a></li>
+                  <li class="list-inline-item"><a target="_BLANK" href="{% static 'frontend/pdf/Triptico_teatro.pdf' %}">{% trans "Tríptico" %}</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <a href="{% url 'frontend:project_igualarte_teatro' %}" class="btn btn-outline-primary">{% trans "ver más" %}</a>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-5">
+        <div class="card">
+          <div class="post-slider slider-sm">
+            <img src="{% static 'frontend/images/proyecto_danza.jpg' %}" class="card-img-top" alt="post-thumb">
+          </div>
+          <div class="card-body">
+            <h3 class="h4 mb-3"><a class="post-title" href="">IgualArte: Danza e inclusión</a></h3>
+            <p>El Proyecto IgualArte: Danza e Inclusión es una herramienta para aprender ...</p>
+            <p>{% trans "Documentos:" %}</p>
+            <ul class="card-meta list-inline">
+              <li class="list-inline-item">
+                <ul class="card-meta-tag list-inline">
+                  <li class="list-inline-item"><a target="_BLANK" href="{% static 'frontend/pdf/Ficha_danza.pdf' %}">{% trans "Ficha" %}</a></li>
+                  <li class="list-inline-item"><a target="_BLANK" href="{% static 'frontend/pdf/Triptico_danza.pdf' %}">{% trans "Tríptico" %}</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <a href="" class="btn btn-outline-primary disabled">{% trans "ver más" %}</a>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-5">
+        <div class="card">
+          <div class="post-slider slider-sm">
+            <img src="{% static 'frontend/images/proyecto_cafe.jpg' %}" class="card-img-top" alt="post-thumb">
+          </div>
+          <div class="card-body">
+            <h3 class="h4 mb-3"><a class="post-title" href="">Visión Café: Barismo e inclusión</a></h3>
+            <p>Con el café como pretexto, el proyecto Visión Café: Barismo e Inclusión ...</p>
+            <p>{% trans "Documentos:" %}</p>
+            <ul class="card-meta list-inline">
+              <li class="list-inline-item">
+                <ul class="card-meta-tag list-inline">
+                  <li class="list-inline-item"><a target="_BLANK" href="{% static 'frontend/pdf/Ficha_cafe.pdf' %}">{% trans "Ficha" %}</a></li>
+                  <li class="list-inline-item"><a target="_BLANK" href="{% static 'frontend/pdf/Triptico_cafe.pdf' %}">{% trans "Tríptico" %}</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <a href="" class="btn btn-outline-primary disabled">{% trans "ver más" %}</a>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="border-bottom border-default"></div>
+      </div>
+    </div>
+  </div>
+</section>

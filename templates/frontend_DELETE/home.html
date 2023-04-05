@@ -1,0 +1,143 @@
+{% extends "./layout.html" %}
+
+{% load model_tags %}
+{% load i18n %}
+{% load static %}
+
+{% block banner %}
+    <section id="banner">
+        <div class="inner">
+            <h2>{{ app_name }}</h2>
+            <h1>{% trans "ASOCIACIÓN PARA LA INCLUSIÓN LABORAL Y LA ATENCIÓN A LA DISCAPACIDAD INTELECTUAL"|title %}</h1>
+            <a href="#about-us" class="more scrolly">{% trans "learn more"|capfirst %}</a>
+        </div>
+    </section>
+{% endblock banner %}
+{% block content %}
+    <section id="about-us" class="wrapper style3 special">
+        <div class="inner">
+            <header class="major">
+                <h2>{% trans "socio-occupational inclusion"|capfirst %}</h2>
+                <p>El objetivo principal de la asociación es la plena inclusión socio-laboral de las personas con discapacidad intelectual.</p>
+            </header>
+            <ul class="actions stacked">
+                <li><a href="{% url 'frontend:page' 'sobre-nosotros' %}" class="button fit primary">{% trans "about us" %}</a></li>
+            </ul>
+        </div>
+    </section>
+    <section id="projects" class="wrapper style2 special">
+        <div class="inner">
+            <header class="major">
+                <h2>{% trans "Projects" %}</h2>
+            </header>
+            <ul class="features">
+                <li class="icon fa-heart">
+                    <h3>IgualArte: Teatro y inclusión</h3>
+                    <p class="text-strong">El comienzo de las clases será el mes de octubre 2022 en horario de mañana y tarde, según demanda.</p>
+                    <p class="justify-mobile">
+                        <span class="image left"><img src="{% static 'frontend/images/proyecto_teatro.jpg' %}" alt="" width="180" height="180"></span>
+                        El Proyecto IgualArte: Teatro e Inclusión es una herramienta para aprender, desarrollar y demostrar que el Teatro es un elemento fundamental para la transformación personal y social en el ámbito de la diversidad intelectual. Con una metodología llevada a cabo desde hace más de 30 años por un equipo formador con gran experiencia en artes escénicas y con las mismas ganas de trabajo que desde el primer día, tiene como objetivo formar especialistas en este campo.<br><br>
+                        <b>Los cursos de iniciación de Teatro y Danza serán por la mañana, a determinar los días, y en la franja horaria de 10:00 a 14:00. Dos días a la semana cada grupo. <br>
+                        Si hubiera demanda en horario de tarde también se crearía un grupo. <br>
+                        Las clases de Teatro de nivel avanzado para los integrantes de la compañía La Tramoya serán por las tardes en la franja horaria de 16:30 / 17:00 a  20:00 durante dos o tres días a la semana, según la demanda de representaciones que exige aumentar el número de ensayos y montaje de espectáculos.</b>
+                    </p>
+                    <div class="text-center">
+                        <a href="{% static 'frontend/pdf/Ficha_teatro.pdf' %}" target="_BLANK" class="button fit primary">{% trans "ver ficha"|capfirst %}</a>
+                        <a href="{% static 'frontend/pdf/Triptico_teatro.pdf' %}" target="_BLANK" class="button fit primary">{% trans "ver tríptico"|capfirst %}</a>
+                    </div>
+                </li>
+                <li class="icon fa-heart">
+                    <h3>IgualArte: Danza e inclusión</h3>
+                    <p class="text-strong">El comienzo de las clases será el mes de octubre 2022 en horario de mañana y tarde, según demanda.</p>
+                    <p class="justify-mobile">
+                        <span class="image left"><img src="{% static 'frontend/images/proyecto_danza.jpg' %}" alt="" width="180" height="180"></span>
+                        El Proyecto IgualArte: Danza e Inclusión es una herramienta para aprender, desarrollar y demostrar que la danza junto con la expresión corporal son fundamentales para la transformación personal y social en el ámbito de la diversidad intelectual. <br><br>
+                        <b>Los cursos de iniciación de Teatro y Danza serán por la mañana, a determinar los días, y en la franja horaria de 10:00 a 14:00. Dos días a la semana cada grupo. Si hubiera demanda en horario de tarde también se crearía un grupo.</b>
+                    </p>
+                    <div class="text-center">
+                        <a href="{% static 'frontend/pdf/Ficha_danza.pdf' %}" target="_BLANK" class="button fit primary">{% trans "ver ficha"|capfirst %}</a>
+                        <a href="{% static 'frontend/pdf/Triptico_danza.pdf' %}" target="_BLANK" class="button fit primary">{% trans "ver tríptico"|capfirst %}</a>
+                    </div>
+                </li>
+                <li class="icon fa-heart">
+                    <h3>Visión Café: Barismo e Inclusión</h3>
+                    <p class="justify-mobile">
+                        <span class="image left"><img src="{% static 'frontend/images/proyecto_cafe.jpg' %}" alt="" width="180" height="180"></span>
+                        Con el café como pretexto, el proyecto Visión Café: Barismo e Inclusión tiene como objetivo formar a personas con diversidad intelectual como expertos baristas, mostrando así una propuesta innovadora en el mundo de la diversidad. A través de las formaciones personalizadas sobre el mundo del café y con la colaboración de empresas, lograremos formar a personas expertas en la cadena del café, capaces también de transmitir estos conocimientos a otras personas.
+                    </p><br>
+                    <div class="text-center">
+                        <a href="{% static 'frontend/pdf/Ficha_cafe.pdf' %}" target="_BLANK" class="button fit primary">{% trans "ver ficha"|capfirst %}</a>
+                        <a href="{% static 'frontend/pdf/Triptico_cafe.pdf' %}" target="_BLANK" class="button fit primary">{% trans "ver tríptico"|capfirst %}</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="collaborate" class="wrapper style3 special">
+        <div class="inner">
+            <header class="major">
+                <h2>{% trans "you want to collaborate with us"|capfirst %}</h2>
+                <p>{% trans "We wish you to be part of the future projects of our organisation." %}</p>
+            </header>
+            <ul class="actions stacked">
+                <li><a href="#form" class="button fit primary">{% trans "collaborate" %}</a></li>
+            </ul>
+        </div>
+    </section>
+    {% next_event %}
+    <section id="form" class="wrapper style3 special">
+        <div class="inner">
+            <header class="major">
+                <h2>{% trans "contact form"|title %}</h2>
+            </header>
+            <form method="post" id="contact_form" action="{% url 'contact:home' %}" accept-charset="utf-8">
+                {% csrf_token %}
+                <div class="row gtr-uniform">
+                    <div class="col-12 col-12-xsmall">
+                        <input type="text" name="name" id="id-name" placeholder="{% trans 'name'|title %}" required />
+                    </div>
+                    <div class="col-6 col-12-xsmall">
+                        <input type="email" name="email" id="id-email" placeholder="{% trans 'email'|title %}" required />
+                    </div>
+                    <div class="col-6 col-12-xsmall">
+                        <input type="text" name="telephone" id="id-telephone" placeholder="{% trans 'telephone'|title %}" required />
+                    </div>
+                    <div class="col-12">
+                        <textarea name="text" id="id-text" placeholder="{% trans 'enter your message'|title %}" rows="6" required></textarea>
+                    </div>
+                    <div class="col-12">
+                        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+                        <input type="checkbox" id="id-terms" name="id-terms" required />
+                        <label for="id-terms">{% trans "I have read and accept" %} <a target="_BALNK" href="{% url 'frontend:page' 'politica-de-privacidad' %}">{% trans "privacy policy"|upper %}</a></label>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button class="primary" type="submit">{% trans "Send" %}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="map">
+        <div id="map-leaflet"></div>
+    </section>
+{% endblock content %}
+
+{% block js %}
+    <script src="https://www.google.com/recaptcha/api.js?render={{ site_key }}"></script>
+    <script>
+        grecaptcha.ready(function() {
+          grecaptcha.execute('{{ site_key }}').then(function(token) {
+            document.getElementById('g-recaptcha-response').value = token;
+          });
+        });
+    </script>
+    <script>
+        var map = L.map('map-leaflet').setView([40.4324497, -3.8092916], 16);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        L.marker([40.4324497, -3.8092916]).addTo(map)
+        .bindPopup('APILAD<br>C/ Francia, núm. 2, Portal 15, 1º ,2ª<br>28223-Pozuelo de Alarcón (Madrid)')
+        .openPopup();
+    </script>
+{% endblock js %}

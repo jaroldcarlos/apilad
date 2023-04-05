@@ -1,0 +1,80 @@
+{% load i18n %}
+{% comment %}
+
+    {% if show_title %}
+    <div class="container">
+      <div>
+            <h2>
+                {% if title %}
+                    {{ title }}
+                {% else %}
+                    {% trans "Featured blog posts " %}
+                {% endif %}
+            </h2>
+      </div>
+    </div>
+    {% endif %}
+
+    {% for post in posts %}
+        <article>
+            <h2><a href="{% url 'blog:post_detail' post.slug %}">{{ post.title }}</a></h2>
+            <div>
+                <small>
+                    <strong>{% trans "Author" %}:</strong>
+                    <a href="{% url 'blog:post_list_by_author' post.author.slug %}">{{ post.author }}</a>
+                    <strong>{% trans "Tags" %}:</strong>
+                    {% for tag in post.tags.all %}
+                        <a href="{% url 'blog:post_list_by_tag' tag.slug %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+                    {% empty %}
+                        {% trans "No tags" %}
+                    {% endfor %}
+                </small>
+            </div>
+            <img src="{{ post.image.url }}" width="200">
+            <p>{{ post.excerpt }}</p>
+        </article>
+        <hr>
+    {% empty %}
+        {% trans "No posts found" %}
+    {% endfor %}
+    {% if show_view_all %}
+        <a href="{% url 'blog:post_list' %}">{% trans "Show all" %}</a>
+    {% endif %}
+{% endcomment %}
+
+{% if posts %}
+
+    <div class="bg_color_1">
+        <div class="container margin_80_55">
+            <div class="main_title_2">
+                <span><em></em></span>
+                <h3>{% trans "noticias y eventos"|capfirst %}</h3>
+                <p>{% trans "Te lo contamos todo: eventos, noticias y toda la actualidad de Skeirrum"|capfirst %}</p>
+            </div>
+            <div class="row">
+                {% for post in posts %}
+                    <div class="col-lg-6">
+                        <a class="box_news" href="{% url 'blog:post_detail' post.slug %}">
+                            <figure><img src="{{ post.image.url }}" alt="{{ post.slug }}">
+                                <figcaption><strong>{{ post.created_at|date:'d'}}</strong>{{ post.created_at|date:'M'}}</figcaption>
+                            </figure>
+                            <ul>
+                                <li>{{ post.author }}</li>
+                                <li>{{ post.created_at|date:'d.m.y'}}</li>
+                            </ul>
+                            <h4>{{ post.title|title }}</h4>
+                            <p>{{ post.excerpt|truncatewords:20 }}</p>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- /row -->
+            <p class="btn_home_align"><a href="{% url 'blog:post_list' %}" class="btn_1 rounded">{% trans "ver más noticias"|capfirst %}</a></p>
+        </div>
+        <!-- /container -->
+    </div>
+
+{% endif %}
+
+
+

@@ -1,0 +1,29 @@
+{% extends "../layout.html" %}
+
+{% load model_tags %}
+{% load i18n %}
+{% load static %}
+
+{% block css %}
+<style>
+    #main > header {
+        background-color:#d67588!important;
+        background-image:none;
+    }
+</style>
+{% endblock css %}
+
+{% block class_body %}{% endblock class_body %}
+{% block content %}
+    <article id="main">
+        <header>
+            <h1>{{ page.title }}</h1>
+            <p>{{ page.subtitle }}</p>
+        </header>
+        <section class="wrapper style5">
+            <div class="inner">
+                {{ page.content|safe }}
+            </div>
+        </section>
+    </article>
+{% endblock content %}

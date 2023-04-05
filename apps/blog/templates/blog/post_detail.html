@@ -1,0 +1,78 @@
+{% extends "frontend/layout.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load blog_tags %}
+{% load crispy_forms_tags %}
+
+{% comment %}
+{% block banner %}
+    {% trans "noticias"|title as title %}
+    {% include "inc/_header.html" with title=title %}
+{% endblock banner %}
+{% endcomment %}
+
+{% block css %}
+    <style>
+        #main > header {
+            background-color: #d67588!important;
+            background-image: none;
+        }
+    </style>
+{% endblock css %}
+
+{% block class_body %}id='blog'{% endblock class_body %}
+
+{% block content %}
+    <article id="main">
+        <header>
+            <h1>{{ object.title }}</h1>
+            <p>{{ object.subtitle }}</p>
+        </header>
+        <section class="wrapper style5">
+            <div class="inner">
+                <span class="image left">
+                {% if object.image %}
+                    <img src="{{ object.image.url }}" alt="{{ object.title }}">
+                {% else %}
+                    <img src="{% static 'frontend/images/event.jpg' %}" alt="{{ object.title }}">
+                {% endif %}</span>
+                {{ object.text|safe }}
+            </div>
+        </section>
+        {% if object.pictures.all.count > 1 %}
+            <section class="wrapper style5">
+                <div class="inner">
+                    <h2>{% trans "galería" %}</h2>
+                    <div class="box alt">
+                        <div class="row gtr-50 gtr-uniform">
+                            {% for picture in object.pictures.all  %}
+                                <div class="col-4"><span class="image fit"><img src="{{ picture.image.url }}" alt="{{ picture.alt }}"></span></div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+        <div class="clearfix">
+            {% if prev_post %}
+                <a href="{% url 'blog:post_detail' prev_post.slug %}" class="btn_1 add_bottom_30 float-start">&larr; {% trans 'Anterior' %}</a>
+            {% endif %}
+            {% if next_post %}
+                <a href="{% url 'blog:post_detail' next_post.slug %}" class="btn_1 add_bottom_30 float-end">{% trans 'Siguiente' %} &rarr;</a>
+            {% endif %}
+        </div>
+    </article>
+    <section id="cta" class="wrapper style3">
+        <div class="inner">
+            <header>
+                <h2>{% trans "Be part of us" %}</h2>
+                <p>{% trans "if you want more information about our courses do not hesitate to send us an inquiry." %}</p>
+            </header>
+            <ul class="actions stacked">
+                <li><a href="{% url 'frontend:home' %}#projects" class="button fit primary">{% trans "projects" %}</a></li>
+                <li><a href="{% url 'frontend:home' %}#form" class="button fit">{% trans "form" %}</a></li>
+            </ul>
+        </div>
+    </section>
+{% endblock %}

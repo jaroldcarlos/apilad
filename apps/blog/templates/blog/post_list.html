@@ -1,0 +1,66 @@
+{% extends "frontend/layout.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load blog_tags %}
+
+{% comment %}
+{% block banner %}
+    {% trans "noticias"|title as title %}
+    {% include "inc/_header.html" with title=title %}
+{% endblock banner %}
+{% endcomment %}
+
+{% block css %}
+    <style>
+        #main > header {
+            background-color: #d67588!important;
+            background-image: none;
+        }
+    </style>
+{% endblock css %}
+
+{% block id_body %}{% endblock id_body %}
+
+{% block content %}
+    <div id="main">
+        <header>
+            <h1>{% trans "blog"|title %}</h1>
+            <p>{{ event.subtitle }}</p>
+        </header>
+        <div class="row" style="padding-top:1.5em; margin:10px 10px">
+            <section id="two" class="wrapper alt style2 col-9 col-12-xsmall">
+                {% for blog in object_list %}
+                    <a href="{{ blog.get_absolute_url }}" title="{{ blog.title }}">
+                        <section class="spotlight">
+                            <div class="image"><img src="{{ blog.image.url }}" alt=""></div><div class="content">
+                                <h3>{{ blog.title|title }}</h3>
+                                <p>{{ blog.excerpt|truncatewords:'20' }}</p>
+                            </div>
+                            <div>
+                                {% if is_paginated %}
+                                    {% include "blog/inc/pagination.html" %}
+                                {% endif %}
+                            </div>
+                        </section>
+                    </a>
+                {% endfor %}
+            </section>
+            <aside class="col-3 col-12-xsmall" id="sidebar">
+                {% blog_sidebar search=search %}
+            </aside>
+        </div>
+    </div>
+    <section id="cta" class="wrapper style3">
+        <div class="inner">
+            <header>
+                <h2>{% trans "Be part of us" %}</h2>
+                <p>{% trans "if you want more information about our courses do not hesitate to send us an inquiry." %}</p>
+            </header>
+            <ul class="actions stacked">
+                <li><a href="{% url 'frontend:home' %}#projects" class="button fit primary">{% trans "projects" %}</a></li>
+                <li><a href="{% url 'frontend:home' %}#form" class="button fit">{% trans "form" %}</a></li>
+            </ul>
+        </div>
+    </section>
+{% endblock %}

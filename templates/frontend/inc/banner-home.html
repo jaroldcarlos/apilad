@@ -1,0 +1,35 @@
+{% load i18n %}
+{% load static %}
+
+<style>
+.sect {
+  width: 100%;
+  min-height: 500px;
+}
+#sect1 {
+  position: relative;
+  overflow: hidden;
+}
+video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+</style>
+
+<div class="banner text-center" id="sect1" class="sect">
+    <video src="{% static 'frontend/video/Banner.MP4' %}" autoplay="true" muted="true" loop="true"></video>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 mt-5 mx-auto">
+              <h2 class="banner-title" style="border-top: 3px solid white; border-bottom: 3px solid white; padding: 10px 0;">{{ app_name }}</h2>
+            </div>
+            <div class="col-lg-9 mx-auto">
+                <h1 class="mb-5 mt-5 banner-title">{% trans "Asociación Para la Inclusión Laboral de las personas con Discapacidad Intelectual" %}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+

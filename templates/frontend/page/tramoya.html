@@ -1,0 +1,52 @@
+{% extends "../layout.html" %}
+{% load i18n %}
+{% load static %}
+{% load sorl_thumbnail %}
+
+{% block css %}
+  <style>
+    #fullpage {
+      display: none;
+      position: absolute;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-repeat: no-repeat no-repeat;
+      background-position: center center;
+      background-color: black;
+    }
+  </style>
+{% endblock css %}
+
+{% block content %}
+  <section class="section-sm mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 mx-auto text-center">
+          <img src="{% static 'frontend/images/proyectos/igualarte-teatro/Logotramoya.jpeg' %}" alt="" width="200">
+          <h1></h1>
+          <p class="mb-4 mt-2">
+            La Tramoya surge en 1992 como una actividad terapéutica e inclusiva dentro de un Centro Ocupacional.
+            La actividad se fue consolidando con el tiempo hasta llegar a conformarse en el año 2000 como compañía estable. Nunca otra actividad había logrado hasta entonces que estas personas pudieran desarrollar su capacidad para expresar emociones y sentimientos.
+            El teatro les transforma en actores y actrices con “poder” para transmitir al publico toda la fuerza y la magia de esta disciplina
+            Actualmente el objetivo del proyecto es: desarrollar las capacidades de los artistas y promover su inclusión social y laboral a través del teatro como espacio para la creación, el aprendizaje y la transmisión de la emoción artística.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-sm">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 text-center" style="border:1px solid white;height:300px;background-image:url('{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen1.jpg" %}');background-size:cover;background-position:center"></div>
+        <div class="col-lg-4 col-md-6 text-center" style="border:1px solid white;height:300px;background-image:url('{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen2.jpg" %}');background-size:cover;background-position:center"></div>
+        <div class="col-lg-4 col-md-6 text-center" style="border:1px solid white;height:300px;background-image:url('{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen3.jpg" %}');background-size:cover;background-position:center"></div>
+        <div class="col-lg-4 col-md-6 text-center" style="border:1px solid white;height:300px;background-image:url('{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen4.jpg" %}');background-size:cover;background-position:center"></div>
+        <div class="col-lg-4 col-md-6 text-center" style="border:1px solid white;height:300px;background-image:url('{% static "frontend/images/proyectos/igualarte-teatro/tramoya/fotoelpais.jpg" %}');background-size:cover;background-position:center"></div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}

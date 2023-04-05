@@ -1,0 +1,12 @@
+{% extends "email/base.html" %}
+
+{% load email_tags %}
+{% load i18n %}
+
+{% block subject %}{% trans "Register" %}{% endblock %}
+
+{% block plain %}{% endblock %}
+
+{% block html_content %}
+    <p>{% blocktrans with username=user.username domain=domain%} Dear {{ username }},<br>welcome to {{ domain }}{% endblocktrans %}</p>
+{% endblock html_content %}

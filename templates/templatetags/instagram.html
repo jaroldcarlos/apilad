@@ -1,0 +1,4 @@
+<h2>Últimas publicaciones de Instagram</h2>
+{% for post in posts %}
+    <img src="{{ post.images.standard_resolution.url }}" alt="{{ post.caption.text }}">
+{% endfor %}

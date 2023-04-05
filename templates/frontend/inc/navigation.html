@@ -1,0 +1,34 @@
+{% load i18n %}
+<ul class="navbar-nav mx-auto">
+    <li class="nav-item dropdown">
+      <a class="nav-link" href="{% url 'frontend:home' %}" >
+        {% trans "Inicio" %}
+      </a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link" href="{% url 'frontend:page' 'quienes-somos' %}" >
+        {% trans "Quienes somos" %}
+      </a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link" href="{% url 'frontend:event_list' %}" >
+        {% trans "Eventos" %}
+      </a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link" href="{% url 'frontend:home' %}#section-collaborate" >
+        {% trans "Colaborar" %}
+      </a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link" href="{% url 'frontend:home' %}#section-contact" >
+        {% trans "Contactar" %}
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="order-2 order-lg-3 d-flex align-items-center">
+    <button class="navbar-toggler border-0 order-1" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+    </button>
+</div>

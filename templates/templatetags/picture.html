@@ -1,0 +1,17 @@
+{% load static %}
+{% load thumbnail %}
+{% load custom_filters %}
+
+<picture{% if class %} class='{{ class }}'{% endif %}>
+{% if sizes %}
+    {% for data, value in sizes.items %}
+    <source {% thumbnail url value.size crop=value.crop as im %}
+        srcset="{{ im.url }}"
+        media="({{ value.screen|linebreaksbr }})"
+    {% endthumbnail %}>
+    {% endfor %}
+
+{% endif %}
+    <img srcset="{{ url.url }}"{% if alt %} alt="{{ alt }}"{% endif %}>
+</picture>
+

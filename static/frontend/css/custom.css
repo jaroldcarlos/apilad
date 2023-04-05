@@ -1,0 +1,65 @@
+section#map {
+    height: 350px;
+}
+
+div#map-leaflet{
+    height: 350px;
+    z-index: 0;
+}
+
+#messages.success {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    background: green;
+    font-weight: 600;
+}
+
+p.text-strong {
+    font-weight: 900;
+    font-size: 1.1em;
+}
+.text-center {
+    text-align: center;
+}
+
+
+.justify-mobile{
+    text-align: justify;
+}
+.btn{
+    border-radius: 0;
+}
+.btn-outline-primary.disabled, .btn-outline-primary:disabled {
+    color: #C82A54;
+    background-color: #fafafa;
+}
+.card-body {
+    min-height: 215px;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    video {
+        width: auto!important;
+        height: 400px;
+    }
+    .mb-5, .my-5 {
+        margin-bottom: 1rem!important;
+    }
+    .mt-5, .my-5 {
+        margin-top: 1rem!important;
+    }
+    h1, .h1 {
+        font-size: 1.5rem;
+    }
+    .section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .form-group label {
+        font-size: 12px;
+    }
+    iframe#instagram-embed-0 {
+    min-width: auto!important;
+}
+}

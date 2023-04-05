@@ -1,0 +1,37 @@
+{% load i18n %}
+{% load static %}
+<section class="section" id="section-contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="content mb-5">
+                    <h2 id="we-would-love-to-hear-from-you">{% trans "Formulario de Contacto" %}</h2>
+                    <p>{% trans 'En el caso de que usted tenga cualquier duda o consulta que desee realizar a APILAD, puede solicitar esta información cumplimentando el cuestionario anexo y recibirá en breve, contestación a través de su dirección de correo electrónico, o bien directamente:' %}</p>
+                </div>
+                <form method="post" id="contact_form" action="{% url 'contact:home' %}" accept-charset="utf-8">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="name" id="id-name" placeholder="{% trans 'name'|title %}" required />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="email" name="email" id="id-email" placeholder="{% trans 'email'|title %}" required />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="telephone" id="id-telephone" placeholder="{% trans 'telephone'|title %}" required />
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="text" id="id-text" placeholder="{% trans 'enter your message'|title %}" rows="6" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+                        <input type="checkbox" id="id-terms" name="id-terms" required />
+                        <label for="id-terms">{% trans "I have read and accept" %} <a target="_BLANK" href="{% url 'frontend:page' 'politica-de-privacidad' %}" style="color:#C82A54">{% trans "privacy policy"|capfirst %}</a></label>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button class="btn btn-primary" type="submit">{% trans "Send" %}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

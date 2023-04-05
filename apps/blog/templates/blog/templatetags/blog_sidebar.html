@@ -1,0 +1,9 @@
+{% load blog_tags %}
+
+{% blog_search search %}
+
+{% if categories %}{% blog_categories %}{% endif %}
+{% comment %}
+    {% if authors %}{% blog_authors %}{% endif %}
+{% endcomment %}
+{% if tags %}{% blog_tags %}{% endif %}

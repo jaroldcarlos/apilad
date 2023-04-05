@@ -1,0 +1,55 @@
+<style>
+
+ol {
+  counter-reset: li;
+  list-style: none;
+  padding: 0;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+ol a {
+  position: relative;
+  display: block;
+  padding: .4em .4em .4em 2em;
+  margin: .5em 0;
+  background: #417690;
+  color: #f2f2f2;
+  text-decoration: none;
+  border-radius: .3em;
+  transition: .3s ease-out;
+}
+ol a:hover, .active{ background: #417690AA; color:#f2f2f2; }
+ol a:hover:before { transform: rotate(360deg); }
+ol a:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -1.3em;
+  top: 50%;
+  margin-top: -1.3em;
+  background: #417690;
+  height: 2.5em;
+  width: 2.5em;
+  line-height: 2em;
+  border: .3em solid #fff;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 2em;
+  transition: all .3s ease-out;
+}
+
+label {
+    margin-bottom: 5px;
+}
+.form-group {
+    padding: 10px 10px;
+}
+</style>
+
+<ol class="sections">
+    {% for item in registry.section_objects.values %}
+        <li>
+            <a href="{% if registry.section_url_namespace %}{% url registry.section_url_namespace section=item.name %}{% else %}./{{ item.name }}{% endif %}" {% if section.verbose_name == item.verbose_name %}class="active"{% endif %}>{{ item.verbose_name|upper }}</a>
+        </li>
+    {% endfor %}
+</ol>

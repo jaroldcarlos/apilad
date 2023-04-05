@@ -1,0 +1,15 @@
+{% load i18n %}
+
+{% if authors %}
+    <div class="box_detail booking">
+        <div class="price">
+            <h3 style="margin:0px">{% trans "autores"|capfirst %}</h3>
+        </div>
+        <ul class="cats">
+            {% for author in authors %}
+                <li><a href="{% url 'blog:post_list_by_author' author.slug %}">{{ author.name|capfirst }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+

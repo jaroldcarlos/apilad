@@ -1,0 +1,13 @@
+{% load i18n %}
+
+{% if show %}
+    <div class="gtr-uniform">
+        <form method="GET" id="search_form" accept-charset="utf-8" action="{% url 'blog:post_list' %}">
+            <div class="form-group">
+                <input name="search" id="search" type="text" placeholder="{% if search %}{{ search }}{%else%}{% trans 'terminos de búsqueda'|capfirst %}{% endif %}" />
+            </div>
+            <br>
+            <button type="submit" class="button primary fit">{% trans 'buscar'|capfirst %}</button>
+        </form>
+    </div>
+{% endif %}

@@ -1,0 +1,15 @@
+{% load i18n %}
+{% load static %}
+
+<section class="section wave">
+<img src="/static/frontend/images/backgrounds/wave-bg.svg" class="wave-bg">
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 mx-auto text-center">
+        <h2 class="mb-4">{% trans "Inclusión sociolaboral" %}</h2>
+        <p class="mb-4">{% trans "El objetivo principal de la asociación es la plena inclusión sociolaboral de las personas con discapacidad intelectual" %}</p>
+        <a href="{% url 'frontend:page' 'quienes-somos' %}" class="btn btn-primary">{% trans "Quienes Somos" %}</a>
+        </div>
+    </div>
+    </div>
+</section>

@@ -1,0 +1,13 @@
+{% extends "email/base.html" %}
+
+{% load email_tags %}
+{% load i18n %}
+
+{% block subject %}Subject{% endblock %}
+
+{% block plain %}plain text{% endblock %}
+
+{% block html_content %}
+    <p>HTML</p>
+    <p>text</p>
+{% endblock html_content %}

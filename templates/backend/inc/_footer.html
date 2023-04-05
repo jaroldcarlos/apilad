@@ -1,0 +1,4 @@
+{% load i18n %}
+<footer class="main-footer">
+    <strong>Copyright &copy; {% now "Y" %} <a href="{% url 'backend:home' %}">{{ app_domain }}</a>&nbsp;</strong> {% trans "All rights reserved" %}
+</footer>

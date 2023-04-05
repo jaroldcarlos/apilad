@@ -1,0 +1,86 @@
+{% load i18n %}
+{% load static %}
+{% load thumbnail %}
+
+
+{% if events %}
+<link rel="stylesheet" href="{% static 'others/OwlCarousel/assets/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'others/OwlCarousel/assets/owl.theme.default.min.css' %}">
+<script type="text/javascript" src="{% static 'others/OwlCarousel/owl.carousel.min.js' %}"></script>
+
+<style>
+    .owl-carousel .card-body {
+        height: 300px;
+    }
+</style>
+
+<section class="section pb-0" id="section-events">
+  <div class="container">
+    <h2 class="h5 section-title">{% trans "Próximos Eventos" %}</h2>
+    <div class="row">
+        <div class="owl-carousel owl-theme">
+        {% for event in events %}
+            <div class="item">
+                <div class="card">
+                    <div class="post-slider slider-sm">
+                        {% thumbnail event.image "400x400" crop="center" as im %}
+                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="card-img-top" alt="{{ event.title }}">
+                        {% endthumbnail %}
+                    </div>
+                    <div class="card-body">
+                        <h3 class="h4 mb-3"><a class="post-title" href="{% url 'frontend:event_detail' event.slug %}">{{ event.title }}</a></h3>
+                        <ul class="card-meta list-inline">
+                            {% if event.text_show_geo %}
+                                <li class="list-inline-item">
+                                    <i class="ti-world"></i> {{ event.text_show_geo }}
+                                </li>
+                            {% endif %}
+                            {% if event.text_show_date %}
+                                <li class="list-inline-item">
+                                    <i class="ti-calendar"></i>{{ event.text_show_date }}
+                                </li>
+                            {% endif %}
+                        </ul>
+                        {{ event.description_short|truncatechars:100 }}
+                        <br>
+                    </div>
+                    {% if event.ticket_purchase_link %}
+                        <a href="{{ event.ticket_purchase_link }}" class="btn btn-outline-primary mb-1" target="_BLANK">{% trans "comprar entrada" %}</a>
+                    {% endif %}
+                    <a href="{% url 'frontend:event_detail' event.slug %}" class="btn btn-outline-primary">{% trans "ver más" %}</a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        <hr>
+        <div class="text-center" style="width:100%">
+            <a href="{% url 'frontend:event_list' %}" class="btn btn-primary">{% trans "ver todos los eventos" %}</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    responsiveClass:true,
+    nav:false,
+    autoplay:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:2,
+            nav:false
+        },
+        1000:{
+            items:2,
+            nav:true,
+            loop:false
+        }
+    }
+})
+</script>
+{% endif %}

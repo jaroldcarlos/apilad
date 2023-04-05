@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load meta %}
+{% load static %}
+{% load i18n %}
+<html {% meta_namespaces_schemaorg %}>
+    <head {% meta_namespaces %}>
+        <link rel="stylesheet" href=" {% static 'frontend/assets/css/main.css' %}" />
+        <noscript><link rel="stylesheet" href="{% static 'frontend/assets/css/noscript.css' %}"/></noscript>
+        {% include "meta/meta.html" %}
+        <meta name="robots" content="all">
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static '/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static '/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static '/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static '/site.webmanifest' %}">
+        <link rel="mask-icon" href="{% static '/safari-pinned-tab.svg' %}" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#9f00a7">
+        <meta name="theme-color" content="#ffffff">
+        <link href="{% static 'frontend/css/custom.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/leaflet.css' %}"/>
+        <script src="{% static 'js/leaflet.js' %}"></script>
+        {% block css %}
+        {% endblock css %}
+        {% if not debug %}
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-5NCP83J');</script>
+            <!-- End Google Tag Manager -->
+        {% endif %}
+        <!-- Google Tag Manager -->
+    </head>
+    <body {% block class_body %}class="landing is-preload"{% endblock class_body %} {% block id_body %}{% endblock id_body %}>
+        <!-- Page Wrapper -->
+        {% if messages %}
+            {% for message in messages %}
+                <div id="messages" {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    {{ message|capfirst }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <div id="page-wrapper">
+            <!-- Header -->
+                <header id="header" class="alt">
+                    <p class="nav_appname"><a href="{% url 'frontend:home' %}">{{ app_name }}</a></p>
+                    <nav id="nav">
+                        <ul>
+                            <li class="special">
+                                <a href="#menu" class="menuToggle"><span>{% trans "menu"|title %}</span></a>
+                                <div id="menu">
+                                    <ul>
+                                        <li><a href="{% url 'frontend:home' %}">{% trans "home"|title %}</a></li>
+                                        <li><a href="{% url 'frontend:page' 'sobre-nosotros' %}">{% trans "about us"|title %}</a></li>
+                                        <li><a href="{% url 'frontend:page' 'organigrama' %}">{% trans "organisation chart"|title %}</a></li>
+                                        <li><a href="{% url 'blog:post_list' %}">{% trans "blog"|title %}</a></li>
+                                        <li><a href="{% url 'frontend:home' %}#collaborate">{% trans "collaborate"|title %}</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                {% block banner %}
+                {% endblock banner %}
+                {% block content %}
+                {% endblock content %}
+                {% block footer %}
+                    <!-- Footer -->
+                    <footer id="footer">
+                        <ul class="icons">
+                            {% comment %}
+                                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                                <li><a target="_BLANK" href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                            {% endcomment %}
+                            <li><a target="_BLANK" rel="nofollow" href="https://twitter.com/APILADpozuelo" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a target="_BLANK" rel="nofollow" href="https://www.instagram.com/apiladpozuelo/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                            <li><a target="_BLANK" rel="nofollow" href="mailto:apiladasociacion@gmail.com" class="icon solid fa-envelope"><span class="label">{% trans "email" %}</span></a></li>
+                        </ul>
+                        <ul class="copyright">
+                            <li>&copy; {{ app_name }} 2022-{% now "Y" %}</li>
+                            <li><a rel="nofollow" href="{% url 'frontend:page' 'aviso-legal' %}">{% trans "aviso legal"|title %}</a></li>
+                            <li><a rel="nofollow" href="{% url 'frontend:page' 'politica-de-privacidad' %}">{% trans "política de privacidad"|title %}</a></li>
+                        </ul>
+                        <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                        <span itemprop="streetAddress">
+                            c/ Francia, núm. 2, Portal 15, 1ª , 2ª
+                        </span>
+                        <span itemprop="addressLocality">Pozuelo de Alarcón</span>,
+                        <span itemprop="addressRegion">Madrid</span>
+                        <span itemprop="postalCode">28223</span>
+                        </div>
+                        <span itemprop="telephone">(+34) 616 215 574</span> |
+                        <span itemprop="telephone">(+34) 687 312 085</span>
+                        <a href="mailto:info@apilad.es" itemprop="email">
+                            info@apilad.es
+                        </a>
+                    </footer>
+                {% endblock footer %}
+            </div>
+        <!-- Scripts -->
+        <script src=" {% static 'frontend/assets/js/jquery.min.js' %}"></script>
+        <script src=" {% static 'frontend/assets/js/jquery.scrollex.min.js' %}"></script>
+        <script src=" {% static 'frontend/assets/js/jquery.scrolly.min.js' %}"></script>
+        <script src=" {% static 'frontend/assets/js/browser.min.js' %}"></script>
+        <script src=" {% static 'frontend/assets/js/breakpoints.min.js' %}"></script>
+        <script src=" {% static 'frontend/assets/js/util.js' %}"></script>
+        <script src=" {% static 'frontend/assets/js/main.js' %}"></script>
+        {% block js %}
+        {% endblock js %}
+        {% if not debug %}
+            <!-- Google Tag Manager (noscript) -->
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5NCP83J"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
+        {% endif %}
+        {% if messages %}
+            <script type="text/javascript">
+                setTimeout(function() {
+                    $('#messages').fadeOut('fast');
+                }, 2000); // <-- time in milliseconds
+            </script>
+        {% endif %}
+    </body>
+</html>

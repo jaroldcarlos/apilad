@@ -1,0 +1,61 @@
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load leaflet_tags %}
+
+<div class="row">
+    <div class="{% if show_form %}col-md-6{% else %}col-md-12{% endif %}">
+        {% if show_datas %}
+            {% if address or telephone or email %}
+                <div class="text-center">
+                    <h2>{% trans "contact information"|title %}</h2>
+                     {% if address %}
+                        <p>{% trans "address" %}</p>
+                        <p>{{ address|safe }}</p>
+                        <hr>
+                    {% endif %}
+                    {% if telephone %}
+                        <p>{% trans "telephone" %}</p>
+                        <p>{{ telephone }}</p>
+                        <hr>
+                    {% endif %}
+                    {% if email %}
+                        <p>{% trans "email" %}</p>
+                        <p>{{ email }}</p>
+                        <hr>
+                    {% endif %}
+                </div>
+            {% else %}
+                {% trans "no data" %}
+            {% endif %}
+        {% endif %}
+    </div>
+    {% if show_form %}
+        <div class="{% if not show_datas %}
+        col-md-12 {% else %}col-md-6
+        {% endif %}">
+            <h2>{% trans "contact form"|title %}</h2>
+            <form method="POST" action="{% url 'contact:home' %}" id="contact_form" accept-charset="utf-8">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="g-recaptcha btn_1 rounded btn-block mt-2" data-sitekey="{{ site_key }}" data-callback='onSubmit'>{% trans "Send" %}</button>
+            </form>
+        </div>
+        <script>
+           function onSubmit(token) {
+             document.getElementById("contact_form").submit();
+           }
+        </script>
+    {% endif %}
+</div>
+{% if show_map %}
+    {% if latitude and longitude %}
+        <script>
+            function map_init_basic (map, options) {
+                L.marker([ {{ latitude }}, {{ longitude }} ]).addTo(map)
+                .bindPopup('{{ text_map|safe }}')
+                .openPopup();
+            }
+        </script>
+        {% leaflet_map "map_contact" callback="window.map_init_basic" %}
+    {% endif %}
+{% endif %}

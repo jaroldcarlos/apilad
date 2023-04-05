@@ -1,0 +1,657 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-30 00:52+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\apps\backend\dynamic_preferences_registry.py:34
+msgid "Estamos realizando un mantenimiento programado, disculpe las molestias"
+msgstr ""
+
+#: .\apps\backend\views\dashboard.py:43
+msgid "verification email has been sent"
+msgstr "se ha enviado el correo electrónico de verificación"
+
+#: .\apps\backend\views\dashboard.py:49
+msgid "registration successful"
+msgstr "registro exitoso"
+
+#: .\apps\backend\views\dashboard.py:69
+msgid "Thank you for your email confirmation"
+msgstr "Gracias por su confirmación por correo electrónico"
+
+#: .\apps\backend\views\dashboard.py:73
+msgid "Activation link is invalid!"
+msgstr "El enlace de activación no es válido."
+
+#: .\apps\backend\views\users.py:80
+msgid "Your password was successfully updated!"
+msgstr "Tu contraseña ha sido actualizada con éxito."
+
+#: .\apps\backend\views\users.py:83
+msgid "Please correct the error below."
+msgstr "Por favor, corrija el error que aparece a continuación."
+
+#: .\apps\contact\models.py:6 .\templates\frontend\home.html:70
+msgid "name"
+msgstr "nombre"
+
+#: .\apps\contact\models.py:7 .\templates\backend\users\list.html:22
+#: .\templates\frontend\home.html:73 .\templates\frontend\layout.html:70
+#: .\templates\templatetags\contact.html:22
+msgid "email"
+msgstr "email"
+
+#: .\apps\contact\models.py:8 .\templates\frontend\home.html:76
+#: .\templates\templatetags\contact.html:17
+msgid "telephone"
+msgstr "teléfono"
+
+#: .\apps\contact\models.py:9
+msgid "text"
+msgstr "texto"
+
+#: .\apps\contact\models.py:15 .\templates\frontend\contact.html:9
+msgid "contact"
+msgstr "contacto"
+
+#: .\apps\contact\models.py:16
+msgid "contacts"
+msgstr "contactos"
+
+#: .\apps\contact\views.py:24
+msgid "subject"
+msgstr "asunto"
+
+#: .\apps\contact\views.py:35
+msgid "your enquiry has been sent, you will receive a reply soon"
+msgstr "su consulta ha sido enviada, recibirá una respuesta en breve"
+
+#: .\apps\contact\views.py:37
+msgid "your enquiry has not been sent. please try again later."
+msgstr "Su consulta no ha sido enviada. Por favor, inténtelo más tarde."
+
+#: .\apps\contact\views.py:43 .\apps\contact\views.py:52
+msgid "{} | Contact Page"
+msgstr "{} | Página de Contacto"
+
+#: .\apps\frontend\models.py:26 .\apps\frontend\models.py:46
+#: .\apps\frontend\models.py:106 .\apps\frontend\models.py:132
+msgid "image"
+msgstr "imagen"
+
+#: .\apps\frontend\models.py:32 .\apps\frontend\models.py:44
+#: .\apps\frontend\models.py:96
+msgid "title"
+msgstr "título"
+
+#: .\apps\frontend\models.py:39
+msgid "event category"
+msgstr "categoría de evento"
+
+#: .\apps\frontend\models.py:40
+msgid "event categories"
+msgstr "categorías de eventos"
+
+#: .\apps\frontend\models.py:45 .\apps\frontend\models.py:101
+#: .\core\abstract.py:136
+msgid "slug"
+msgstr ""
+
+#: .\apps\frontend\models.py:47
+msgid "content"
+msgstr "contenido"
+
+#: .\apps\frontend\models.py:59
+msgid "page"
+msgstr "página"
+
+#: .\apps\frontend\models.py:60
+msgid "pages"
+msgstr "páginas"
+
+#: .\apps\frontend\models.py:80
+msgid "creator"
+msgstr "creador"
+
+#: .\apps\frontend\models.py:88
+msgid "category"
+msgstr "categoría"
+
+#: .\apps\frontend\models.py:126 .\apps\frontend\models.py:136
+msgid "event"
+msgstr "evento"
+
+#: .\apps\frontend\models.py:127 .\templates\frontend\layout.html:47
+msgid "events"
+msgstr "eventos"
+
+#: .\apps\frontend\models.py:131
+msgid "alt"
+msgstr "alt"
+
+#: .\apps\frontend\views.py:12
+msgid "{} | Asociación para la inclusión laboral y la atención a la diversidad"
+msgstr ""
+
+#: .\core\abstract.py:15
+msgid "active"
+msgstr "activo"
+
+#: .\core\abstract.py:27
+msgid "access"
+msgstr "acceso"
+
+#: .\core\abstract.py:28
+msgid "wc"
+msgstr "wc"
+
+#: .\core\abstract.py:29
+msgid "information"
+msgstr "información"
+
+#: .\core\abstract.py:30
+msgid "accesibility full"
+msgstr "accesible"
+
+#: .\core\abstract.py:31
+msgid "aclarations"
+msgstr "aclaraciones"
+
+#: .\core\abstract.py:39
+msgid "min age"
+msgstr "edad mínima"
+
+#: .\core\abstract.py:40
+msgid "max age"
+msgstr "edad máxima"
+
+#: .\core\abstract.py:43
+msgid "requirements"
+msgstr "requisitos"
+
+#: .\core\abstract.py:47
+msgid "price"
+msgstr "precio"
+
+#: .\core\abstract.py:48
+msgid "link"
+msgstr "enlace"
+
+#: .\core\abstract.py:60
+msgid "min people"
+msgstr "min. de personas"
+
+#: .\core\abstract.py:66
+msgid "max people"
+msgstr "max. de personas"
+
+#: .\core\abstract.py:78
+msgid "description short"
+msgstr "descripción corta"
+
+#: .\core\abstract.py:82
+msgid "description"
+msgstr "descripción"
+
+#: .\core\abstract.py:103 .\core\abstract.py:261
+msgid "latitude"
+msgstr "latitud"
+
+#: .\core\abstract.py:104 .\core\abstract.py:268
+msgid "longitude"
+msgstr "longitud"
+
+#: .\core\abstract.py:117
+msgid "starred"
+msgstr "destacado"
+
+#: .\core\abstract.py:118
+msgid "child"
+msgstr "infantil"
+
+#: .\core\abstract.py:119
+msgid "limited seating"
+msgstr "asientos limitados"
+
+#: .\core\abstract.py:120
+msgid "registration required"
+msgstr "se requiere registro"
+
+#: .\core\abstract.py:127
+msgid "meta_keywords"
+msgstr "meta_keywords"
+
+#: .\core\abstract.py:128
+msgid "meta_title"
+msgstr "meta_title"
+
+#: .\core\abstract.py:129
+msgid "meta_description"
+msgstr "meta_description"
+
+#: .\core\abstract.py:148
+msgid "Finished"
+msgstr "Finalizado"
+
+#: .\core\abstract.py:149
+msgid "On hold"
+msgstr "En espera"
+
+#: .\core\abstract.py:150
+msgid "Published"
+msgstr "Publicado"
+
+#: .\core\abstract.py:151
+msgid "Draft"
+msgstr "Borrador"
+
+#: .\core\abstract.py:156
+msgid "Publication status"
+msgstr ""
+
+#: .\core\abstract.py:187
+msgid "created_at"
+msgstr ""
+
+#: .\core\abstract.py:188
+msgid "modified_at"
+msgstr ""
+
+#: .\core\abstract.py:200
+msgid "meta keywords"
+msgstr ""
+
+#: .\core\abstract.py:205
+msgid "meta title"
+msgstr ""
+
+#: .\core\abstract.py:210
+msgid "meta description"
+msgstr ""
+
+#: .\core\abstract.py:286 .\templates\templatetags\contact.html:12
+msgid "address"
+msgstr "dirección"
+
+#: .\core\abstract.py:292
+msgid "state"
+msgstr "provincia"
+
+#: .\core\abstract.py:298
+msgid "city"
+msgstr "ciudad"
+
+#: .\core\abstract.py:304
+msgid "postal code"
+msgstr "código postal"
+
+#: .\core\components\i18n.py:20
+msgid "Español"
+msgstr "Español"
+
+#: .\core\components\i18n.py:21
+msgid "English"
+msgstr "Ingles"
+
+#: .\core\utils.py:95
+msgid "now"
+msgstr "ahora"
+
+#: .\core\utils.py:116
+msgid "year"
+msgstr "año"
+
+#: .\core\utils.py:117
+msgid "month"
+msgstr "mes"
+
+#: .\core\utils.py:118
+msgid "week"
+msgstr "semana"
+
+#: .\core\utils.py:119
+msgid "day"
+msgstr "día"
+
+#: .\core\utils.py:120
+msgid "hour"
+msgstr "hora"
+
+#: .\core\utils.py:121
+msgid "minute"
+msgstr "minuto"
+
+#: .\core\utils.py:122
+msgid "second"
+msgstr "segundos"
+
+#: .\core\utils.py:125
+msgid "millisecond"
+msgstr "milisegundos"
+
+#: .\core\utils.py:126
+msgid "microsecond"
+msgstr "microsegundos"
+
+#: .\core\utils.py:163
+msgid "Max file size is {}MB"
+msgstr ""
+
+#: .\core\utils.py:171
+msgid "Unsupported file extension."
+msgstr ""
+
+#: .\templates\backend\inc\_footer.html:3 .\templates\email\base.html:157
+msgid "All rights reserved"
+msgstr "Todos los derechos reservados"
+
+#: .\templates\backend\inc\_navbar_links.html:9
+msgid "edit profile"
+msgstr "editar perfil"
+
+#: .\templates\backend\inc\_navbar_links.html:10
+#: .\templates\backend\users\change_password.html:8
+msgid "change password"
+msgstr "cambiar contraseña"
+
+#: .\templates\backend\inc\_navbar_menu.html:7
+#: .\templates\backend\layout.html:51
+#: .\templates\backend\users\change_password.html:7
+#: .\templates\backend\users\create.html:7
+#: .\templates\backend\users\delete.html:8
+#: .\templates\backend\users\list.html:11
+#: .\templates\backend\users\update.html:7 .\templates\frontend\layout.html:44
+msgid "home"
+msgstr "Inicio"
+
+#: .\templates\backend\inc\_navbar_menu.html:13
+msgid "users"
+msgstr "usuarios"
+
+#: .\templates\backend\inc\_navbar_menu.html:15
+#: .\templates\backend\users\create.html:8
+msgid "create user"
+msgstr "crear usuario"
+
+#: .\templates\backend\inc\_navbar_menu.html:16
+msgid "user list"
+msgstr "lista de usuarios"
+
+#: .\templates\backend\inc\_navbar_menu.html:23
+#: .\templates\backend\users\list.html:54
+msgid "search"
+msgstr "buscar"
+
+#: .\templates\backend\layout.html:46
+msgid "Dashboard"
+msgstr "Panel de Control"
+
+#: .\templates\backend\users\change_password.html:14
+#: .\templates\backend\users\create.html:14
+#: .\templates\backend\users\update.html:14
+msgid "save"
+msgstr "guardar"
+
+#: .\templates\backend\users\create.html:15
+msgid "see list"
+msgstr "ver lista"
+
+#: .\templates\backend\users\delete.html:9
+msgid "delete user"
+msgstr "eliminar usuario"
+
+#: .\templates\backend\users\delete.html:14
+#, python-format
+msgid "Are you sure you want to delete \"%(object)s\"?"
+msgstr "Estás seguro de eliminar a \"%(object)s\"?"
+
+#: .\templates\backend\users\delete.html:16
+msgid "cancel"
+msgstr "cancelar"
+
+#: .\templates\backend\users\list.html:12
+msgid "users list"
+msgstr "lista de usuarios"
+
+#: .\templates\backend\users\list.html:19
+msgid "username"
+msgstr "nombre de usuario"
+
+#: .\templates\backend\users\list.html:20
+msgid "first name"
+msgstr "nombre"
+
+#: .\templates\backend\users\list.html:21
+msgid "last name"
+msgstr "apellidos"
+
+#: .\templates\backend\users\list.html:23
+msgid "options"
+msgstr "opciones"
+
+#: .\templates\backend\users\list.html:34
+msgid "edit"
+msgstr "editar"
+
+#: .\templates\backend\users\list.html:35
+#: .\templates\backend\users\update.html:16
+msgid "delete"
+msgstr "eliminar"
+
+#: .\templates\backend\users\list.html:49
+msgid "Display _MENU_ records per page"
+msgstr "Mostrar _MENU_ registros por página"
+
+#: .\templates\backend\users\list.html:50
+msgid "Nothing found - sorry"
+msgstr "No se encontro nada - lo sentimos"
+
+#: .\templates\backend\users\list.html:51
+msgid "Showing page _PAGE_ of _PAGES_"
+msgstr "Mostrar página _PAGE_ de _PAGES_"
+
+#: .\templates\backend\users\list.html:52
+msgid "no records available"
+msgstr "sin registros"
+
+#: .\templates\backend\users\list.html:53
+msgid "(filtered from _MAX_ total records)"
+msgstr "(Filtrar de _MAX_ registros totales)"
+
+#: .\templates\backend\users\update.html:8
+msgid "update user"
+msgstr "editar usuario"
+
+#: .\templates\backend\users\update.html:15
+msgid "back to the list"
+msgstr "volver a la lista"
+
+#: .\templates\dynamic_preferences\form.html:12
+msgid "submit"
+msgstr "enviar"
+
+#: .\templates\email\base.html:92
+msgid "hello"
+msgstr "hola"
+
+#: .\templates\email\base.html:157
+msgid "we appreciate you"
+msgstr "te apreciamos"
+
+#: .\templates\email\register.html:6 .\templates\email\verification.html:6
+msgid "Register"
+msgstr "Registrar"
+
+#: .\templates\email\register.html:11
+#, python-format
+msgid " Dear %(username)s,<br>welcome to %(domain)s"
+msgstr ""
+
+#: .\templates\email\verification.html:11
+#, python-format
+msgid " Dear %(username)s,<br>welcome to %(domain)s.<br>"
+msgstr ""
+
+#: .\templates\email\verification.html:12
+msgid "Please click here to confirm your registration"
+msgstr ""
+
+#: .\templates\frontend\contact.html:19
+#: .\templates\templatetags\contact.html:10
+msgid "contact information"
+msgstr "información de contacto"
+
+#: .\templates\frontend\contact.html:30 .\templates\frontend\home.html:87
+#: .\templates\registration\registration_user.html:46
+#: .\templates\templatetags\contact.html:40
+msgid "Send"
+msgstr "Enviar"
+
+#: .\templates\frontend\home.html:11
+msgid "association for work inclusion and attention to diversity"
+msgstr "asociación para la inclusión laboral y la atención a la diversidad"
+
+#: .\templates\frontend\home.html:12
+msgid "learn more"
+msgstr "leer más"
+
+#: .\templates\frontend\home.html:20
+msgid "socio-occupational inclusion"
+msgstr "inclusión sociolaboral"
+
+#: .\templates\frontend\home.html:21
+msgid ""
+"The main objective of the Association is especially the attention to the "
+"full social and labour inclusion of people with intellectual disabilities/"
+"intellectual diversity."
+msgstr ""
+"El objetivo principal de la Asociación es especialmente la atención a "
+"laplena inclusión social y laboral de las personas con discapacidad "
+"intelectualintelectual."
+
+#: .\templates\frontend\home.html:24 .\templates\frontend\layout.html:45
+msgid "about us"
+msgstr "sobre nosotros"
+
+#: .\templates\frontend\home.html:31
+msgid "Projects"
+msgstr "Proyectos"
+
+#: .\templates\frontend\home.html:52
+msgid "you want to collaborate with us"
+msgstr "quieres colaborar con nosotros"
+
+#: .\templates\frontend\home.html:53
+msgid "We wish you to be part of the future projects of our organisation."
+msgstr "Deseamos seas parte delos proyectos futuros de nuestra entidad"
+
+#: .\templates\frontend\home.html:56 .\templates\frontend\layout.html:48
+msgid "collaborate"
+msgstr "colaborar"
+
+#: .\templates\frontend\home.html:64 .\templates\templatetags\contact.html:36
+msgid "contact form"
+msgstr "formulario de contacto"
+
+#: .\templates\frontend\home.html:79
+msgid "enter your message"
+msgstr "introduzca su mensaje"
+
+#: .\templates\frontend\home.html:84
+msgid "I have read and accept"
+msgstr "He leído y acepto"
+
+#: .\templates\frontend\home.html:84
+msgid "privacy policy"
+msgstr "política de privacidad"
+
+#: .\templates\frontend\layout.html:41
+msgid "menu"
+msgstr "menú"
+
+#: .\templates\frontend\layout.html:46
+msgid "organisation chart"
+msgstr "organigrama"
+
+#: .\templates\frontend\layout.html:74
+msgid "aviso legal"
+msgstr ""
+
+#: .\templates\frontend\layout.html:75
+msgid "política de privacidad"
+msgstr ""
+
+#: .\templates\frontend\page\event_view.html:33
+msgid "gallery"
+msgstr ""
+
+#: .\templates\registration\login.html:9
+#: .\templates\registration\registration_user.html:65
+msgid "log in"
+msgstr ""
+
+#: .\templates\registration\login.html:28
+msgid "sign in to start your session"
+msgstr ""
+
+#: .\templates\registration\login.html:33
+msgid "clic para mostrar contraseña"
+msgstr ""
+
+#: .\templates\registration\login.html:34
+msgid "show password"
+msgstr ""
+
+#: .\templates\registration\login.html:50
+msgid "sign in"
+msgstr ""
+
+#: .\templates\registration\login.html:69
+msgid "i forgot my password"
+msgstr ""
+
+#: .\templates\registration\login.html:72
+#: .\templates\registration\registration_user.html:28
+msgid "register a new membership"
+msgstr ""
+
+#: .\templates\registration\registration_user.html:9
+msgid "register"
+msgstr ""
+
+#: .\templates\registration\registration_user.html:65
+msgid "If you already have an account"
+msgstr ""
+
+#: .\templates\templatetags\contact.html:28
+msgid "no data"
+msgstr "sin datos"
+
+#: .\templates\templatetags\next_event.html:7
+msgid "next event"
+msgstr "próximo evento"
+
+#: .\templates\templatetags\next_event.html:15
+msgid "see more"
+msgstr "ver más"
+
+#~ msgid "I have read and accept the terms and conditions of use"
+#~ msgstr "He leído y acepto las condiciones de uso"
+
+#~ msgid "send message"
+#~ msgstr "enviar mensage"

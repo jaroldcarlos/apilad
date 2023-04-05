@@ -1,0 +1,17 @@
+{% load i18n %}
+
+{% if categories %}
+    <div class="box_detail booking bg_color_1">
+        <div class="price">
+            <h3 style="margin:0px">{% trans "categorías"|capfirst %}</h3>
+        </div>
+        <ul class="cats">
+            {% for category in categories %}
+                <li><a href="{% url 'blog:post_list_by_category' category.slug %}">{{ category.name|capfirst }}</a></li>
+            {% endfor %}
+            {% if categories.count > 4 %}
+                <li><a href="{% url 'blog:post_list' %}">{% trans 'see all'|capfirst %}</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{% endif %}
