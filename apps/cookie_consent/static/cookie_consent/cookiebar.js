@@ -20,7 +20,7 @@ function showCookieBar (options) {
   };
 
   const opts = Object.assign(defaults, options);
-  
+
   const wrapper = document.createElement('div');
   wrapper.innerHTML= opts.content;
   const content = wrapper.firstChild;
@@ -43,7 +43,8 @@ function showCookieBar (options) {
           evalXCookieConsent(script);
         }
       });
-    })  
+      location.reload();
+    })
   });
 
   document
@@ -60,7 +61,7 @@ function showCookieBar (options) {
       if (opts.cookie_decline) {
         document.cookie = opts.cookie_decline;
       }
-    })  
+    })
   });
 }
 

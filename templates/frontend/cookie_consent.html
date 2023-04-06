@@ -2,15 +2,77 @@
 {% load cookie_consent_tags %}
 
 <style>
-    .cookie-bar {
+    .cookie-overlay {
         position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         width: 100%;
-        bottom:0;
-        text-align:center;
-        height:25px;
-        line-height: 25px;
-        background: #eee;
-        z-index: 8000;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 10000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 2rem;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    .cookie-body {
+        background-color: white;
+        padding: 30px 30px;
+        color: black;
+    }
+    .cookie-text {
+        margin-bottom: 20px;
+    }
+    .cookie-buttons a:hover {
+        color: white;
+    }
+    .bnp_btn_accept, .bnp_btn_reject {
+        background: #00809d;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding: 10px 42px;
+        border: 0;
+        color: #fff;
+        line-height: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    @media screen and (max-width: 600px) {
+    /* Estilos CSS para pantallas pequeñas */
+        .cookie-body {
+            width:90%;
+        }
+        .cookie-overlay {
+            font-size: 0.875rem;
+            padding: 5px 5px;
+        }
+    }
+
+    /* Media query para tabletas (de 600px a 1024px de ancho) */
+    @media screen and (min-width: 600px) and (max-width: 1024px) {
+    /* Estilos CSS para tabletas */
+        .cookie-body {
+            width:60%;
+        }
+    }
+
+    /* Media query para pantallas de ordenador (a partir de 1024px de ancho) */
+    @media screen and (min-width: 1024px) {
+    /* Estilos CSS para pantallas de ordenador */
+        .cookie-body {
+            width:50%;
+        }
     }
 </style>
 
@@ -40,7 +102,7 @@
         }
         ready(function() {
         showCookieBar({
-        content: "{% filter escapejs %}{% with cookie_groups=cookie_groups|join:", " %}<div class="cookie-bar">This site uses {{ cookie_groups }} cookies for better performance and user experience. Do you agree to use cookies? <a href="{{ url_accept }}" class="cc-cookie-accept">Accept</a> <a href="{{ url_decline }}" class="cc-cookie-decline">Decline</a> <a href="{{ url_cookies }}">Cookies info</a></div>{% endwith %}{% endfilter %}",
+        content: "{% filter escapejs %}{% with cookie_groups=cookie_groups|join:", " %}{% spaceless %}{% include 'frontend/inc/_cookie_body.html' with cookie_groups=cookie_groups url_accept=url_accept url_decline=url_decline url_cookies=url_cookies %}{% endspaceless %}{% endwith %}{% endfilter %}",
         cookie_groups: cookie_groups,
         cookie_decline: "{% get_decline_cookie_groups_cookie_string request cookie_groups %}",
         beforeDeclined: function() {

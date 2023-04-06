@@ -1,0 +1,24 @@
+{% load i18n %}
+{% load static %}
+{% spaceless %}
+<div class="cookie-overlay">
+    <div class="cookie-body">
+        <div class="text-center mb-3">
+            <img class="img-fluid" width="150px" src="{% static 'frontend/images/logos/logo.png' %}" alt="{{ app_name }} logo">
+        </div>
+        <div class="cookie-text">
+            {% url 'frontend:page' 'politica-de-cookies' as politicas_cookies %}
+            {% blocktrans with url_cookies=politicas_cookies %}
+                Apilad utiliza cookies y tecnologías similares para ofrecer, mantener y mejorar nuestros servicios. Si estás de acuerdo, utilizaremos estos datos para mejorar vuestra experiencia en la web. Puedes seleccionar 'Aceptar' para dar tu consentimiento a estos usos, o 'Rechazar' para no darlo. Puedes cambiar tu selección en 'Administrar preferencias de cookies' en la parte inferior de esta página. <a href="{{ url_cookies }}" target="_COOKIES" title="política de cookies">Políticas de Cookies</a>
+            {% endblocktrans %}
+        </div>
+        <div class="cookie-buttons">
+            <a href="{{ url_accept }}" class="cc-cookie-accept bnp_btn_accept">{% trans "aceptar"|title %}</a>
+            <a href="{{ url_decline }}" class="cc-cookie-decline bnp_btn_reject">{% trans "Rechazar"|title %}</a>
+        </div>
+    </div>
+    {% comment %}
+        <a href="{{ url_cookies }}">Cookies info</a>
+    {% endcomment %}
+</div>
+{% endspaceless %}
