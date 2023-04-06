@@ -1,0 +1,74 @@
+{% extends "frontend/layout.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block css %}
+    <style>
+        .header {
+            background-image:none;
+            background-color: white;
+            background-position: bottom center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            padding: 120px 0 0px;
+        }
+        .section {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 1rem;
+            background-color: transparent;
+            color: #333;
+        }
+        thead th {
+            text-align: left;
+            background-color: #eee;
+            border-bottom: 2px solid #ddd;
+            padding: 0.5rem;
+        }
+        tbody td {
+            border-bottom: 1px solid #ddd;
+            padding: 0.5rem;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        form.cookie-consent-decline, form.cookie-consent-accept {
+            display: inline-block;
+        }
+    </style>
+{% endblock css %}
+
+{% block content %}
+    <div class="header text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 mx-auto">
+                    <h1 class="mb-4">{% trans "Administrar preferencias de cookies" %}</h1>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a class="text-default" href="{% url 'frontend:home' %}">{% trans "Inicio" %}
+                        &nbsp; &nbsp; /</a></li>
+                        <li class="list-inline-item text-primary">{% trans "Administrar preferencias de cookies" %}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="section">
+        <div class="container">
+            <p>
+                {% blocktrans %}
+                    Utilizamos cookies para proporcionar y mantener nuestros servicios, hacer un seguimiento de las interrupciones y prevenir el spam, el fraude y los abusos, así como para medir la interacción de la audiencia y estadísticas de los sitios para entender cómo se utilizan nuestros servicios y mejorar su calidad.
+                {% endblocktrans %}
+            </p>
+            {% for cookie_group in object_list  %}
+                {% include "cookie_consent/_cookie_group.html" %}
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

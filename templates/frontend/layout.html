@@ -66,15 +66,16 @@
     <footer class="footer">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-7 text-center text-md-left mb-4">
+                <div class="col-md-10 text-center text-md-left mb-4">
                     <ul class="list-inline footer-list mb-0">
                         <li class="list-inline-item">&copy; {{ app_name }} {% now "Y" %}</li>
                         <li class="list-inline-item"><a href="{% url 'frontend:page' 'aviso-legal' %}">{% trans "Aviso Legal" %}</a></li>
                         <li class="list-inline-item"><a href="{% url 'frontend:page' 'politica-de-privacidad' %}">{% trans "Política de Privacidad" %}</a></li>
                         <li class="list-inline-item"><a href="{% url 'frontend:page' 'politica-de-cookies' %}">{% trans "Política de Cookies" %}</a></li>
+                        <li class="list-inline-item"><a href="{% url 'cookie_consent_cookie_group_list' %}">{% trans "Administrar preferencias de cookies" %}</a></li>
                     </ul>
                 </div>
-                <div class="col-md-5 text-md-right text-center mb-4">
+                <div class="col-md-2 text-md-right text-center mb-4">
                     <ul class="list-inline footer-list mb-0">
                         <li class="list-inline-item"><a target="_BLANK" href="https://twitter.com/APILADpozuelo"><i class="ti-twitter-alt"></i></a></li>
                         <li class="list-inline-item"><a target="_BLANK" href="https://www.instagram.com/apiladpozuelo/"><i class="ti-instagram"></i></a></li>
