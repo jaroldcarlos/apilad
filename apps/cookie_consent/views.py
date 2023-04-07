@@ -3,6 +3,9 @@ from django.core.exceptions import SuspiciousOperation
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic import ListView, View
+from meta.views import Meta
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.translation import gettext as _
 
 from .compat import RedirectURLMixin, url_has_allowed_host_and_scheme
 from .models import CookieGroup
@@ -15,6 +18,26 @@ class CookieGroupListView(ListView):
     """
 
     model = CookieGroup
+
+    def get_context_data(self, **kwargs):
+        context = super(CookieGroupListView, self).get_context_data(**kwargs)
+        current_site = get_current_site(self.request)
+        meta = Meta(
+            title = _('{} | Administrar preferencias de cookies '.format(current_site.name)),
+            description = _(''),
+            keywords='cookies',
+            use_sites=True,
+            image='frontend/images/logo.jpeg',
+            extra_props={
+                'designer': 'ecDesignStudio',
+                'viewport': 'width=device-width, initial-scale=1.0, minimum-scale=1.0'
+            },
+            extra_custom_props=[
+                ('http-equiv', 'Content-Type', 'text/html; charset=UTF-8'),
+            ]
+        )
+        context['meta'] = meta
+        return context
 
 
 class CookieGroupBaseProcessView(RedirectURLMixin, View):
