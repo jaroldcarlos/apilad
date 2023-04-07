@@ -198,12 +198,12 @@ AUTH_USER_MODEL = 'backend.User'
 #                                                                       #
 #########################################################################
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / '..' / 'public_html' / 'static'
+STATIC_ROOT = BASE_DIR / '..' / '..' / 'public_html' / 'static'
 
 MEDIA_URL = '/media/'
 
 if not DEBUG:
-    MEDIA_ROOT = BASE_DIR / '..' / 'public_html' / 'media'
+    MEDIA_ROOT = BASE_DIR / '..' / '..' / 'public_html' / 'media'
 else:
     MEDIA_ROOT = BASE_DIR / 'media'
 
