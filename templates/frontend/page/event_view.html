@@ -1,12 +1,77 @@
 {% extends "../layout.html" %}
 {% load i18n %}
+{% load social_share %}
 {% load crispy_forms_tags %}
+{% load cookie_consent_tags %}
 
 {% block css %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+  <script src="https://kit.fontawesome.com/f98feef31b.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.7/galleria.min.js"></script>
   <style>
     .galleria{ width: 100%; height: 600px; background: #000 }
+    {% if request|cookie_group_accepted:"functional" %}
+      .tweet-this, .facebook-this, .telegram-this, .whatsapp-this {
+        display: inline-block;
+      }
+      .content a.facebook-link {
+        display: inline-block;
+        background-color: #3B5998;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      .content a.facebook-link:hover {
+        background-color: #2d4373;
+        color:white;
+      }
+      .content .title-social-share{
+        font-size: 0.95em;
+        margin-bottom: 20px;
+      }
+      .content .twitter-link {
+        display: inline-block;
+        background-color: #1DA1F2;
+        color:white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      .content .telegram-link {
+        display: inline-block;
+        background-color: #0088cc;
+        color:white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      .content .telegram-link:hover {
+        background-color: #0077b5;
+        color:white;
+      }
+
+      .content .twitter-link:hover {
+        background-color: #0D95E8;
+        color:white;
+      }
+      .content .whatsapp-link {
+        display: inline-block;
+        background-color: #25D366;
+        color:white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+
+      .content .whatsapp-link:hover {
+        background-color: #1da851;
+        color:white;
+      }
+    {%  endif %}
   </style>
 {% endblock css %}
 
@@ -70,6 +135,20 @@
           <div class="col-lg-5 col-md-6">
             <div class="content pl-lg-3 pl-0">
               <p style="font-size:1.5rem">{{ event.description|safe }}</p>
+              {% if request|cookie_group_accepted:"functional" %}
+                <h3 class="title-social-share">{% trans "compartir en redes sociales"|capfirst %}:</h3>
+                <div class="social_share">
+                    {% trans "compartir evento en facebook" as text_facebook %}
+                    {% trans "compartir evento en twitter" as text_twitter %}
+                    {% trans "compartir evento en telegram" as text_telegram %}
+                    {% trans "compartir evento en whatsapp" as text_whatsapp %}
+
+                    {% post_to_facebook event.get_absolute_url text_facebook 'facebook-link' %}
+                    {% post_to_twitter event.description_short event.get_absolute_url text_twitter 'twitter-link' %}
+                    {% post_to_telegram event.description_short event.get_absolute_url text_telegram 'telegram-link' %}
+                    {% post_to_whatsapp event.get_absolute_url text_whatsapp 'whatsapp-link' %}
+                </div>
+              {% endif %}
             </div>
           </div>
         </div>

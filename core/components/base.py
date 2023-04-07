@@ -164,7 +164,7 @@ TEMPLATES = [
                 'custom_tags': 'core.templatetags.custom_tags',
                 'email_tags': 'core.templatetags.email_tags',
                 'model_tags': 'core.templatetags.model_tags',
-                'instagram_tags': 'core.templatetags.instagram_tags'
+                'social_share': 'core.templatetags.social_share'
             }
         },
     },
