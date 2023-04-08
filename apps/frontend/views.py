@@ -50,7 +50,7 @@ def home(request):
 def project_igualarte_teatro(request):
     current_site = get_current_site(request)
     meta = Meta(
-        title = _('{} | IgualArte: Teatro e inclusión'.format(current_site.name)),
+        title = _('{} | IgualArte: Teatro e inclusión, uno de los proyectos de APILAD'.format(current_site.name)),
         description =  'El Proyecto IgualArte: Teatro e Inclusión es una herramienta para aprender, desarrollar y demostrar que el Teatro es un elemento fundamental para la transformación personal y social en el ámbito de la diversidad intelectual',
         keywords=['diversidad', 'asociación sin ánimo de lucro', 'inclusión', 'teatro', 'APILAD'],
         use_sites=True,
@@ -115,7 +115,7 @@ class PageDetailView(DetailView):
 
 def latramoya_view(request):
     meta = Meta(
-        title = 'La Tramoya',
+        title = 'La Tramoya, historia de un centro Ocupacional de Madrid',
         description = 'La Tramoya surge en 1992 como una actividad terapéutica e inclusiva dentro de un Centro Ocupacional',
         keywords='actividad, terapéutica, centro òcupacional, teatro',
         use_sites=True,
@@ -137,9 +137,9 @@ def latramoya_view(request):
 def event_list(request):
     current_site = get_current_site(request)
     meta = Meta(
-        title = _(f'{current_site.name} | Listado de eventos'),
+        title = _(f'{current_site.name} | Listado de eventos de la Asociación APILAD'),
         description = 'La página de listado de eventos ofrece una amplia variedad de opciones para explorar y participar en eventos emocionantes.',
-        keywords='actividad, terapéutica, centro òcupacional, teatro',
+        keywords=['actividad, terapéutica, centro ocupacional, teatro']
         use_sites=True,
         image='frontend/images/logo.jpeg',
         extra_props={
