@@ -37,6 +37,10 @@ p.text-strong {
 .card-body {
     min-height: 215px;
 }
+.owl-carousel.owl-drag .owl-item {
+    padding: 10px;
+}
+
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     video {

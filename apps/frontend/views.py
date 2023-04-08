@@ -139,7 +139,7 @@ def event_list(request):
     meta = Meta(
         title = _(f'{current_site.name} | Listado de eventos de la Asociación APILAD'),
         description = 'La página de listado de eventos ofrece una amplia variedad de opciones para explorar y participar en eventos emocionantes.',
-        keywords=['actividad, terapéutica, centro ocupacional, teatro']
+        keywords=['actividad', 'terapéutica', 'centro ocupacional', 'teatro'],
         use_sites=True,
         image='frontend/images/logo.jpeg',
         extra_props={
