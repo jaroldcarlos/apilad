@@ -74,7 +74,7 @@ def event_detail(request, slug):
     meta = Meta(
         title = event.meta_title,
         description = event.meta_description,
-        keywords=f'[{event.meta_keywords}]',
+        keywords={event.meta_keywords},
         use_sites=True,
         image=event.image.url if event.image else 'frontend/images/logo.jpeg',
         extra_props={
@@ -116,8 +116,8 @@ class PageDetailView(DetailView):
 def latramoya_view(request):
     meta = Meta(
         title = _('La Tramoya, historia de un centro Ocupacional de Madrid'),
-        description = 'La Tramoya surge en 1992 como una actividad terapéutica e inclusiva dentro de un Centro Ocupacional',
-        keywords='actividad, terapéutica, centro òcupacional, teatro',
+        description = 'La Tramoya surge en 1992 como una actividad terapéutica e inclusiva dentro de un Centro Ocupacional.La actividad se fue consolidando con el tiempo hasta llegar a conformarse en el año 2000 como compañía estable.',
+        keywords=['actividad', 'terapéutica', 'centro ócupacional', 'teatro'],
         use_sites=True,
         image='frontend/images/logo.jpeg',
         extra_props={

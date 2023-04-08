@@ -131,7 +131,7 @@ class SeoModel(models.Model):
     )
     meta_keywords = models.TextField(
         _('meta_keywords'),
-        help_text=_("lista de palabras o frases claves, entre comillas simples y separados por una coma (,). Ejemplo: 'APILAD', 'Evento Público', 'etc'"),
+        help_text=_("lista de palabras o frases claves, separados por una coma (,). Ejemplo: APILAD, Evento Público, etc"),
         null=True,
         blank=True
     )
