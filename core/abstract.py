@@ -124,9 +124,21 @@ class OptionsModel(models.Model):
 
 
 class SeoModel(models.Model):
-    meta_keywords = models.CharField(_('meta_keywords'), max_length=160, blank=True)
-    meta_title = models.CharField(_('meta_title'), max_length=60, blank=True)
-    meta_description = models.TextField(_('meta_description'), max_length=300, blank=True)
+    meta_title = models.TextField(
+        _('meta_title'),
+        max_length=65,
+        help_text=_('máximo de 65 carácteres, obligatorio para el SEO')
+    )
+    meta_keywords = models.TextField(
+        _('meta_keywords'),
+        help_text=_("lista de palabras o frases claves, entre comillas simples y separados por una coma (,). Ejemplo: 'APILAD', 'Evento Público', 'etc'"),
+        null=True,
+        blank=True
+    )
+    meta_description = models.TextField(
+        _('meta_description'),
+        help_text=_('entre de 120 a 330 carácteres, Obligatorio para el SEO')
+    )
 
     class Meta:
         abstract = True
@@ -186,31 +198,6 @@ class TimeStampedModel(models.Model):
     """
     created_at = models.DateTimeField(_('created_at'), auto_now_add=True)
     modified_at = models.DateTimeField(_('modified_at'), auto_now=True)
-
-    class Meta:
-        abstract = True
-
-
-class SeoModel(models.Model):
-    """
-    An abstract base class model that provides seo tag
-    ``meta_keywords`` , ``meta_title`` and ``meta_description`` fields.
-    """
-    meta_keywords = models.CharField(
-        _('meta keywords'),
-        max_length=160,
-        blank=True
-    )
-    meta_title = models.CharField(
-        _('meta title'),
-        max_length=60,
-        blank=True
-    )
-    meta_description = models.CharField(
-        _('meta description'),
-        max_length=300,
-        blank=True
-    )
 
     class Meta:
         abstract = True
