@@ -20,7 +20,7 @@ def home(request):
 
     current_site = get_current_site(request)
     meta = Meta(
-        title = _('Asociación para la inclusión laboral y la atención a la diversidad'),
+        title = _('Asociación para la inclusión laboral y atención a la diversidad'),
         description = 'El objetivo principal de la Asociación es especialmente la atención a la plena inclusión social y laboral de las personas con discapacidad intelectual.',
         keywords=['diversidad', 'asociación sin ánimo de lucro', 'inclusión', 'teatro', 'APILAD'],
         use_sites=True,

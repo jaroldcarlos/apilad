@@ -18,6 +18,11 @@
       background-position: center center;
       background-color: black;
     }
+    .gallery a {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
   </style>
 {% endblock css %}
 
@@ -40,13 +45,18 @@
   </section>
   <section class="section-sm">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-6 text-center" style="border:1px solid white;height:300px;background-image:url('{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen1.jpg" %}');background-size:cover;background-position:center"></div>
-        <div class="col-lg-4 col-md-6 text-center" style="border:1px solid white;height:300px;background-image:url('{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen2.jpg" %}');background-size:cover;background-position:center"></div>
-        <div class="col-lg-4 col-md-6 text-center" style="border:1px solid white;height:300px;background-image:url('{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen3.jpg" %}');background-size:cover;background-position:center"></div>
-        <div class="col-lg-4 col-md-6 text-center" style="border:1px solid white;height:300px;background-image:url('{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen4.jpg" %}');background-size:cover;background-position:center"></div>
-        <div class="col-lg-4 col-md-6 text-center" style="border:1px solid white;height:300px;background-image:url('{% static "frontend/images/proyectos/igualarte-teatro/tramoya/fotoelpais.jpg" %}');background-size:cover;background-position:center"></div>
+      <div class="row gallery">
+          <div class="col-lg-4 col-md-6 text-center" style="border:1px solid white;height:300px;background-image:url('{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen1.jpg" %}');background-size:cover;background-position:center"><a href="{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen1.jpg" %}"></a></div>
+          <div class="col-lg-4 col-md-6 text-center" style="border:1px solid white;height:300px;background-image:url('{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen2.jpg" %}');background-size:cover;background-position:center"><a href="{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen2.jpg" %}"></a></div>
+          <div class="col-lg-4 col-md-6 text-center" style="border:1px solid white;height:300px;background-image:url('{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen3.jpg" %}');background-size:cover;background-position:center"><a href="{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen3.jpg" %}"></a></div>
+          <div class="col-lg-4 col-md-6 text-center" style="border:1px solid white;height:300px;background-image:url('{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen4.jpg" %}');background-size:cover;background-position:center"><a href="{% static "frontend/images/proyectos/igualarte-teatro/tramoya/imagen4.jpg" %}"></a></div>
+          <div class="col-lg-4 col-md-6 text-center" style="border:1px solid white;height:300px;background-image:url('{% static "frontend/images/proyectos/igualarte-teatro/tramoya/fotoelpais.jpg" %}');background-size:cover;background-position:center"><a href="{% static "frontend/images/proyectos/igualarte-teatro/tramoya/fotoelpais.jpg" %}"></a></div>
       </div>
     </div>
   </section>
+</div>
 {% endblock content %}
+
+
+
+
