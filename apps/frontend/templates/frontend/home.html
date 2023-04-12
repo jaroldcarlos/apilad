@@ -20,11 +20,12 @@
                 {% upcoming_events %}
                 {% include './inc/section-collaborate.html' %}
                 {% include './inc/section-professional.html' %}
+                {% include './inc/section-collaborators.html' %}
                 {% include './inc/section-contact.html' %}
             </div>
             {% if request|cookie_group_accepted:"functional" %}
                 <aside class="col-lg-4 @@sidebar mb-5 mb-lg-0">
-                    <section class="section">
+                    <section class="section" style="padding-top:0">
                         <div class="section widget">
                             <h4 class="widget-title"><span>{% trans "Redes Sociales" %}</span></h4>
                             <div style="position:relative;width:100%;">
