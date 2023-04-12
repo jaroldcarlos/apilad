@@ -6,9 +6,13 @@
       </a>
     </li>
     <li class="nav-item dropdown">
-      <a class="nav-link" href="{% url 'frontend:page' 'quienes-somos' %}" >
-        {% trans "Quienes somos" %}
+      <a class="nav-link">
+        {% trans "Nosotros" %}
       </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'frontend:page' 'quienes-somos' %}">{% trans "¿quienes somos?"|title %}</a>
+        <a class="dropdown-item" href="{% url 'frontend:page' 'organigrama' %}">{% trans "organigrama"|title %}</a>
+      </div>
     </li>
     <li class="nav-item dropdown">
       <a class="nav-link" href="{% url 'frontend:event_list' %}" >

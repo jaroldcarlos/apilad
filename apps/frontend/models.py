@@ -46,7 +46,7 @@ class CategoryEvent(ActiveModel, DescriptionModel, SeoModel, SlugModel):
         verbose_name_plural = _('event categories')
 
 
-class Page(ActiveModel, TimeStampedModel, ModelMeta):
+class Page(ActiveModel, TimeStampedModel, ModelMeta, SeoModel):
     title = models.CharField(_('title'),max_length=255, blank=True, null=True)
     slug = models.SlugField(_('slug'), unique=True)
     image = ImageField(_('image'), upload_to='images/', blank=True, null=True)
@@ -58,17 +58,6 @@ class Page(ActiveModel, TimeStampedModel, ModelMeta):
     )
     objects = models.Manager()
     on_site = CurrentSiteManager('publish_on')
-
-    meta_title = models.TextField(
-        _('meta-title'),
-        max_length=55, default='',
-        help_text=_('con un máximo de 55 caracteres')
-    )
-    meta_description = models.TextField(
-        _('meta-description'),
-        max_length=140, default='',
-        help_text=_('con un máximo de 140 caracteres')
-    )
     _metadata = {
         'title': 'meta_title',
         'description': 'meta_description',
