@@ -67,3 +67,30 @@ p.text-strong {
     min-width: auto!important;
 }
 }
+
+    @media screen and (max-width: 600px) {
+    /* Estilos CSS para pantallas pequeñas */
+        .header-mobile-hidden {
+            display: none;
+        }
+        .header {
+            padding: 84px 0 10px;
+        }
+        .card-body {
+            height: auto!important;
+        }
+        h3.h4.mb-3 {
+            font-size: 14px;
+        }
+        img.card-img-top.slick-slide.slick-current.slick-active {
+            height: 250px;
+        }
+        .card {
+            background-color: #fff;
+            margin-bottom: 30px;
+            border: 2px solid #C82A54;
+        }
+        .card a{
+            margin:10px 10px;
+        }
+    }
