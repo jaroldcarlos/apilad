@@ -85,18 +85,18 @@ p.text-strong {
         img.card-img-top.slick-slide.slick-current.slick-active {
             height: 250px;
         }
-        .card {
-            background-color: #fff;
-            margin-bottom: 30px;
-            border: 1px solid #C82A54;
-        }
-        .card.finished {
-            background-color: #fff;
-            margin-bottom: 30px;
-            border: 1px solid black;
-        }
-        .card .card-buttons a {
-            margin: 2% 5%;
-            width: 90%;
-        }
+    }
+    .card {
+        background-color: #fff;
+        margin-bottom: 30px;
+        border: 1px solid #C82A54;
+    }
+    .card.finished {
+        background-color: #fff;
+        margin-bottom: 30px;
+        border: 1px solid black;
+    }
+    .card .card-buttons a {
+        margin: 2% 5%;
+        width: 90%;
     }
