@@ -88,9 +88,15 @@ p.text-strong {
         .card {
             background-color: #fff;
             margin-bottom: 30px;
-            border: 2px solid #C82A54;
+            border: 1px solid #C82A54;
         }
-        .card a{
-            margin:10px 10px;
+        .card.finished {
+            background-color: #fff;
+            margin-bottom: 30px;
+            border: 1px solid black;
+        }
+        .card .card-buttons a {
+            margin: 2% 5%;
+            width: 90%;
         }
     }

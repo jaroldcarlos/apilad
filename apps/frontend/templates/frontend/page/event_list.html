@@ -104,6 +104,7 @@
                 {{ event.description_short|truncatechars:100 }}
                 <br>
               </div>
+              <div class="card-buttons">
               {% if event.ticket_purchase_link %}
                   <a href="{{ event.ticket_purchase_link }}" class="btn btn-outline-primary mb-1" target="_BLANK">{% trans "comprar entrada" %}</a>
               {% endif %}
@@ -112,6 +113,7 @@
               {% else %}
                 <a href="{% url 'frontend:event_detail' event.slug %}" class="btn btn-outline-primary">{% trans "ver más" %}</a>
               {% endif %}
+              </div>
             </div>
           </div>
         {% endfor %}
