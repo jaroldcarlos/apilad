@@ -66,7 +66,9 @@
 .move-btn:first-child {border-right: none;}
 .move-btn.left  { cursor: w-resize; }
 .move-btn.right { cursor: e-resize; }
-
+h4{
+ font-size:0.85em;
+}
 
   </style>
 {% endblock css %}
@@ -186,7 +188,6 @@
                   </div>
               </div>
             </div>
-
             <div class="controls">
               <button class="move-btn left">&larr;</button>
               <button class="move-btn right">&rarr;</button>
@@ -195,6 +196,46 @@
         </div>
      </div>
    </div>
+</section>
+
+<section class="section pb-0">
+  <div class="container">
+    <h2 class="h5 section-title">{% trans "Espectáculos en Cartel" %}</h2>
+    <div class="row no-gutters">
+      <div class="col-lg-4 col-sm-4 text-center" style="padding:0px 20px">
+          <h4 class="mb-2"><a class="post-title">QUIJOTE EN EL S.XXI</a></h4>
+          <img src="{% static 'frontend/images/proyectos/igualarte-teatro/espectáculos/quijote.jpg' %}" width="100%" height="250" alt="quijote en el siglo 21" title="imagen de la representación de quijote en el siglo 21">
+      </div>
+      <div class="col-lg-4 col-sm-4 text-center" style="padding:0px 20px">
+          <h4 class="mb-2"><a class="post-title">BODAS DE SANGRE</a></h4>
+          <img src="{% static 'frontend/images/proyectos/igualarte-teatro/espectáculos/bodas-de-sangre.jpg' %}" width="100%" height="250" alt="bodas de sangre" title="imagen de la representación de bodas de sangre">
+      </div>
+      <div class="col-lg-4 col-sm-4 text-center" style="padding:0px 20px">
+          <h4 class="mb-2"><a class="post-title">EL SUEÑO DE UNA NOCHE DE VERANO</a></h4>
+          <img src="{% static 'frontend/images/proyectos/igualarte-teatro/espectáculos/sueño.jpg' %}" width="100%" height="250" alt="sueño de una noche de verano" title="imagen de la representación de el sueño de una noche de verano">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section pb-0">
+  <div class="container">
+    <h2 class="h5 section-title">{% trans "Otras actividades" %}</h2>
+    <div class="row no-gutters">
+      <div class="col-lg-4 col-sm-4 text-center" style="padding:0px 20px">
+          <h4 class="mb-2"><a class="post-title">Encuentros con el Público</a></h4>
+          <img src="{% static 'frontend/images/proyectos/igualarte-teatro/otros/publico.jpg' %}" width="100%" height="250" alt="encuentros con el público" title="encuentros con el público">
+      </div>
+      <div class="col-lg-4 col-sm-4 text-center" style="padding:0px 20px">
+          <h4 class="mb-2"><a class="post-title">Cursos y Clases Magistrales</a></h4>
+          <img src="{% static 'frontend/images/proyectos/igualarte-teatro/otros/cursos.jpg' %}" width="100%" height="250" alt="cursos y clases magistrales" title="cursos y clases magistrales">
+      </div>
+      <div class="col-lg-4 col-sm-4 text-center" style="padding:0px 20px">
+          <h4 class="mb-2"><a class="post-title">Proyecto Erasmus +</a></h4>
+          <img src="{% static 'frontend/images/proyectos/igualarte-teatro/otros/erasmus.jpg' %}" width="100%" height="250" alt="proyecto erasmus plus" title="proyecto erasmus plus">
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="section pb-0">
