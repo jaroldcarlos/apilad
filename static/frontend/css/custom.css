@@ -86,6 +86,7 @@ p.text-strong {
             height: 250px;
         }
     }
+
     .card {
         background-color: #fff;
         margin-bottom: 30px;
@@ -100,3 +101,7 @@ p.text-strong {
         margin: 2% 5%;
         width: 90%;
     }
+
+.sponsor img {
+    margin: 20px 20px;
+}
