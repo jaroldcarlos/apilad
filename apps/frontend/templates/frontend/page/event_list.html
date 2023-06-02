@@ -105,7 +105,7 @@
                 <br>
               </div>
               <div class="card-buttons">
-              {% if event.ticket_purchase_link %}
+              {% if event.ticket_purchase_link and event.status != 'f'%}
                   <a href="{{ event.ticket_purchase_link }}" class="btn btn-outline-primary mb-1" target="_BLANK">{% trans "comprar entrada" %}</a>
               {% endif %}
               {% if event.status == 'f' %}

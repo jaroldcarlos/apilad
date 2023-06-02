@@ -149,7 +149,7 @@ def event_list(request):
             ('http-equiv', 'Content-Type', 'text/html; charset=UTF-8'),
         ]
     )
-    event_list = Event.objects.exclude(status__in={'o','d'})
+    event_list = Event.objects.exclude(status__in={'o','d'}).order_by('-status', 'published_at')
     if not event_list:
         return redirect('frontend:home')
     context = {

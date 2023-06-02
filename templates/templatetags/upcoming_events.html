@@ -52,10 +52,12 @@
             </div>
         {% endfor %}
         </div>
-        <hr>
-        <div class="text-center" style="width:100%">
-            <a href="{% url 'frontend:event_list' %}" class="btn btn-primary">{% trans "ver todos los eventos" %}</a>
-        </div>
+        {% if events.count > 2 %}
+            <hr>
+            <div class="text-center" style="width:100%">
+                <a href="{% url 'frontend:event_list' %}" class="btn btn-primary">{% trans "ver todos los eventos" %}</a>
+            </div>
+        {% endif %}
     </div>
 </section>
 
