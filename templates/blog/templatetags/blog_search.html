@@ -1,0 +1,21 @@
+{% load i18n %}
+
+
+{% if show %}
+    <section class="section" style="padding-top:0">
+        <div class="section widget">
+            <h4 class="widget-title"><span>{% trans "Busqueda" %}</span></h4>
+            <div style="position:relative;width:100%;">
+                <div class="gtr-uniform">
+                    <form method="GET" id="search_form" accept-charset="utf-8" action="{% url 'blog:post_list' %}">
+                        <div class="form-group">
+                            <input name="search" id="search" type="text" class="form-control" placeholder="{% if search %}{{ search }}{%else%}{% trans 'terminos de búsqueda'|capfirst %}{% endif %}" />
+                            <button type="submit" class="btn btn-primary btn-block">{% trans 'buscar'|capfirst %}</button>
+                        </div>
+                    </form>
+                </div>
+           </div>
+        </div>
+    </section>
+{% endif %}
+

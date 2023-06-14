@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.urls import reverse
-from meta.views import MetadataMixin
+from meta.views import Meta
 from django.contrib import messages
 from django.utils.translation import gettext as _
 
@@ -10,9 +10,23 @@ from .models import Post, Category, Tag, Author, Picture, Comment
 from .forms import CommentForm
 
 
-class PostList(MetadataMixin, generic.ListView):
+class PostList(generic.ListView):
     queryset = Post.published.order_by('-published_at')
     template_name = 'blog/post_list.html'
+    meta = Meta(
+        title = _('Blog de la Asociación APILAD'),
+        description = 'La página de blog ofrece una amplia variedad de noticias sobre la asociación',
+        keywords=['actividad', 'terapéutica', 'centro ocupacional', 'teatro'],
+        use_sites=True,
+        image='frontend/images/logo.jpeg',
+        extra_props={
+            'designer': 'ecDesignStudio',
+            'viewport': 'width=device-width, initial-scale=1.0, minimum-scale=1.0'
+        },
+        extra_custom_props=[
+            ('http-equiv', 'Content-Type', 'text/html; charset=UTF-8'),
+        ]
+    )
 
     def get(self, *args, **kwargs):
         queryset = Post.published.order_by('-published_at')
@@ -39,7 +53,7 @@ class PostList(MetadataMixin, generic.ListView):
         if search:
             context['search'] = search
         context['categories'] = Category.in_use.all()[:4]
-
+        context['meta'] = self.meta
         return context
 
     def get_queryset(self):

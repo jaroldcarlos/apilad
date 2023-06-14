@@ -6,7 +6,7 @@
 
 {% comment %}
 {% block banner %}
-    {% trans "noticias"|title as title %}
+    {% trans "blog"|title as title %}
     {% include "inc/_header.html" with title=title %}
 {% endblock banner %}
 {% endcomment %}
@@ -23,7 +23,7 @@
 {% block id_body %}{% endblock id_body %}
 
 {% block content %}
-    <div id="main">
+    <div class="bg_color_1 text_page" id="blog">
         <header>
             <h1>{% trans "blog"|title %}</h1>
             <p>{{ event.subtitle }}</p>
