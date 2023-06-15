@@ -1,0 +1,19 @@
+{% load i18n %}
+
+{% if categories %}
+    <section class="section header-mobile-hidden" style="padding-top:0">
+        <div class="section widget">
+            <h4 class="widget-title"><span>{% trans "categorías" %}</span></h4>
+            <div style="position:relative;width:100%;">
+                <ul class="cats">
+                    {% for category in categories %}
+                        <li><a href="{% url 'blog:post_list_by_category' category.slug %}">{{ category.name|capfirst }}</a></li>
+                    {% endfor %}
+                    {% if categories.count > 4 %}
+                        <li><a href="{% url 'blog:post_list' %}">{% trans 'see all'|capfirst %}</a></li>
+                    {% endif %}
+                </ul>
+           </div>
+        </div>
+    </section>
+{% endif %}

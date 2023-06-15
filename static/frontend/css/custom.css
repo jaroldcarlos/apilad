@@ -6,7 +6,9 @@ div#map-leaflet{
     height: 350px;
     z-index: 0;
 }
-
+.block-hidden {
+    display: none;
+}
 #messages.success {
     width: 100%;
     text-align: center;
@@ -73,6 +75,9 @@ p.text-strong {
         .header-mobile-hidden {
             display: none;
         }
+        .header-mobile-show {
+            display: block;
+        }
         .header {
             padding: 84px 0 10px;
         }
@@ -84,6 +89,12 @@ p.text-strong {
         }
         img.card-img-top.slick-slide.slick-current.slick-active {
             height: 250px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+    /* Estilos CSS para pantallas pequeñas */
+        #sect1 h1, #sect1 .h1 {
+            font-size: 1.5rem;
         }
     }
 
@@ -105,3 +116,4 @@ p.text-strong {
 .sponsor img {
     margin: 20px 20px;
 }
+

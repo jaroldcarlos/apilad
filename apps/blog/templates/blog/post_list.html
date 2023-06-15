@@ -38,13 +38,14 @@
                                 <p>{{ blog.excerpt|truncatewords:'20' }}</p>
                             </div>
                             <div>
-                                {% if is_paginated %}
-                                    {% include "blog/inc/pagination.html" %}
-                                {% endif %}
                             </div>
                         </section>
                     </a>
+
                 {% endfor %}
+                {% if is_paginated %}
+                    {% include "blog/inc/pagination.html" %}
+                {% endif %}
             </section>
             <aside class="col-3 col-12-xsmall" id="sidebar">
                 {% blog_sidebar search=search %}
