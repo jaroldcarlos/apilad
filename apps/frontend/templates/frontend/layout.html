@@ -6,11 +6,32 @@
 
 <html lang="es">
 <head {% meta_namespaces %}>
+    {% if not debug %}
+        {% if request|cookie_group_accepted:"performance" %}
+            <!-- Google Tag Manager -->
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-TJQSHXB');</script>
+            <!-- End Google Tag Manager -->
+            <!-- Google tag (gtag.js) -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-98TSY1QK9F"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-98TSY1QK9F');
+            </script>
+        {% endif %}
+    {% endif %}
     {% include 'meta/meta.html' %}
     <link rel="canonical" href="http://apilad.es/" />
     <meta name="robots" content="index">
     <meta name="author" content="ecDesignStudio">
     <meta name="publisher" content="ecDesignStudio">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     {% include 'frontend/inc/favicons.html' %}
     <!-- plugins -->
     <link rel="stylesheet" href="{% static 'frontend/plugins/bootstrap/bootstrap.min.css' %}">
@@ -37,18 +58,6 @@
             justify-content: flex-end;
             width: 100%;
         }
-    </style>
-    {% if not debug %}
-        {% if request|cookie_group_accepted:"performance" %}
-            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-5NCP83J');</script>
-            <!-- End Google Tag Manager -->
-        {% endif %}
-    {% endif %}
-    <style>
         .version-message { position:fixed; top:0; width: 100%; z-index: 30000; height: 20px}
         .version-message p{ color:white;font-size: 12px }
         .version-message a{ color:white }
@@ -57,6 +66,14 @@
 </head>
 
 <body>
+    {% if not debug %}
+        {% if request|cookie_group_accepted:"performance" %}
+            <!-- Google Tag Manager (noscript) -->
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJQSHXB"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
+        {% endif %}
+    {% endif %}
     <header class="navigation fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-white">
@@ -80,7 +97,9 @@
                 <div class="col-md-12 text-center mx-auto mb-4 sponsor">
                     <img src="{% static 'frontend/images/patrocinadores/logo-arganzuela.png' %}" width="180" alt="logo de arganzuela" title="logo de arganzuela">
                     <img src="{% static 'frontend/images/patrocinadores/logo-fotografia-cine.png' %}" width="180" alt="logo de fotografia-cine" title="logo de fotografia-cine">
-                    <img src="{% static 'frontend/images/patrocinadores/logo-ecdesign.svg' %}" width="120" height="140" alt="logo de ecdesignStudio" title="logo de ecdesignStudio">
+                    <a href="https://ecdesign.es/" target="_blank" title="ecdesignStudio">
+                        <img src="{% static 'frontend/images/patrocinadores/logo-ecdesign.svg' %}" width="120" height="140" alt="logo de ecdesignStudio" title="logo de ecdesignStudio">                        
+                    </a>
                     <img src="{% static 'frontend/images/patrocinadores/logo-akela.png' %}" width="60" height="60" alt="logo de akela" title="logo de akela">
                     <img src="{% static 'frontend/images/patrocinadores/logo-ilustradora.jpg' %}" width="80" height="80" alt="logo de ilustradora" title="logo de ilustradora">
                 </div>
@@ -120,15 +139,6 @@
     {% block cookie_consent %}
         {% include "./cookie_consent.html" %}
     {% endblock cookie_consent %}
-
-    {% if not debug %}
-        {% if request|cookie_group_accepted:"performance" %}
-            <!-- Google Tag Manager (noscript) -->
-            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5NCP83J"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-            <!-- End Google Tag Manager (noscript) -->
-        {% endif %}
-    {% endif %}
     {% if messages %}
         {% for message in messages %}
             Swal.fire({
