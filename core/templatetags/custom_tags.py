@@ -3,7 +3,8 @@ import re
 from django.conf import settings
 from django import template
 from django.template import Node, TemplateSyntaxError
-
+from django.utils.translation import gettext as _
+from django.utils.http import urlencode
 from core.utils import currency
 
 
@@ -223,3 +224,21 @@ def picture(url=None, format='default', alt=None, css_class=None):
         'class': css_class
     }
     return context
+
+
+@register.simple_tag(takes_context=True)
+def url_whatsapp(context):
+    request = context['request']
+    whatsapp_api_url = 'https://api.whatsapp.com/send'
+    text = _('Hola, me interesaría información sobre APILAD')
+
+    text += ".\r\n\r\n"
+    params = {
+        'phone': '+34602542505',
+        'text': text
+    }
+    url = '{api_url}?{params}'.format(
+        api_url=whatsapp_api_url,
+        params=urlencode(params)
+    )
+    return url
