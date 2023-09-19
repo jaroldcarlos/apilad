@@ -230,7 +230,7 @@ def picture(url=None, format='default', alt=None, css_class=None):
 def url_whatsapp(context):
     request = context['request']
     whatsapp_api_url = 'https://api.whatsapp.com/send'
-    text = _('Hola, en qué te podemos ayudar?')
+    text = _('Hola, me interesaría información sobre APILAD')
 
     text += ".\r\n\r\n"
     params = {

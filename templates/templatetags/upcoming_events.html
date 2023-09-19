@@ -52,12 +52,10 @@
             </div>
         {% endfor %}
         </div>
-        {% if events.count > 2 %}
-            <hr>
-            <div class="text-center" style="width:100%">
-                <a href="{% url 'frontend:event_list' %}" class="btn btn-primary">{% trans "ver todos los eventos" %}</a>
-            </div>
-        {% endif %}
+        <hr>
+        <div class="text-center" style="width:100%">
+            <a href="{% url 'frontend:event_list' %}" class="btn btn-primary">{% trans "ver todos los eventos" %}</a>
+        </div>
     </div>
 </section>
 
@@ -81,8 +79,7 @@
             items:2,
             nav:true,
             loop:false
-        }
-    }
-})
+        }}
+    });
 </script>
 {% endif %}

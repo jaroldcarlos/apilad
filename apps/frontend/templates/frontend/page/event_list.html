@@ -23,6 +23,9 @@
     .header {
       padding: 120px 0 30px;
     }
+    .section.publicado {
+      background: #C82A5414;
+    }
   </style>
 {% endblock css %}
 
@@ -72,52 +75,19 @@
         </svg>
       </div>
   </div>
-  <section class="section">
-    <div class="container">
-      <div class="row">
-        {% for event in event_list %}
-          <div class="col-lg-4 mb-5">
-            <div class="card {% if event.status == 'f' %}finished{% endif %}">
-              {% if event.status == 'f' %}
-                <div style="text-align: center;border: 1px solid black" class="text-finished">{% trans "evento concluido"|title %}</div>
-              {% endif %}
-              <div class="post-slider slider-sm">
-                {% thumbnail event.image "400x400" crop="center" as im %}
-                  <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="card-img-top" alt="{{ event.title }}">
-                {% endthumbnail %}
-              </div>
-              <div class="card-body">
-                <h3 class="h4 mb-3"><a class="post-title" href="{% url 'frontend:event_detail' event.slug %}">{{ event.title }}</a></h3>
-
-                <ul class="card-meta list-inline">
-                    {% if event.text_show_geo %}
-                        <li class="list-inline-item">
-                            <i class="ti-world"></i> {{ event.text_show_geo }}
-                        </li>
-                    {% endif %}
-                    {% if event.text_show_date %}
-                        <li class="list-inline-item">
-                            <i class="ti-calendar"></i>{{ event.text_show_date }}
-                        </li>
-                    {% endif %}
-                </ul>
-                {{ event.description_short|truncatechars:100 }}
-                <br>
-              </div>
-              <div class="card-buttons">
-              {% if event.ticket_purchase_link and event.status != 'f'%}
-                  <a href="{{ event.ticket_purchase_link }}" class="btn btn-outline-primary mb-1" target="_BLANK">{% trans "comprar entrada" %}</a>
-              {% endif %}
-              {% if event.status == 'f' %}
-                <a href="{% url 'frontend:event_detail' event.slug %}" class="btn btn-outline-default">{% trans "ver más" %}</a>
-              {% else %}
-                <a href="{% url 'frontend:event_detail' event.slug %}" class="btn btn-outline-primary">{% trans "ver más" %}</a>
-              {% endif %}
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
+  {% regroup event_list by get_status_display as events_by_status %}
+    {% for status in events_by_status %}
+      <section class="section {{ status.grouper|slugify }}">
+        <div class="container">
+          {% if status.grouper|slugify == 'publicado' %}
+            <h2 class="mb-4">{% trans "eventos activos"|title %}</h2>
+          {% elif status.grouper|slugify == 'finalizado' %}
+            <h2 class="mb-4">{% trans "eventos finalizados"|title %}</h2>
+          {% endif %}
+          {% for event in status.list %}
+            {% include "../inc/block-event-item.html" with event=event position='horizontal' %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endfor %}
 {% endblock content %}

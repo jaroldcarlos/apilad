@@ -43,7 +43,85 @@ p.text-strong {
     padding: 10px;
 }
 
+.card {
+    background-color: #fff;
+    margin-bottom: 30px;
+    border: 1px solid #C82A54;
+}
+.card.finished {
+    background-color: #fff;
+    margin-bottom: 30px;
+    border: 1px solid black;
+}
+.card .card-buttons a {
+    width: 30%;
+}
 
+.sponsor img {
+    margin: 20px 20px;
+}
+section.publicado h2,
+section.publicado .h2{
+    color: #C82A54;
+}
+
+@media screen and (max-width: 991px) {
+/* Estilos CSS para pantallas pequeñas */
+    #sect1 h1, #sect1 .h1 {
+        font-size: 1.5rem;
+    }
+    .card .card-buttons a {
+        width: 40%;
+        font-size: 11px;
+    }
+    section.finalizado p,
+    section.publicado p {
+        font-size: 13px;
+    }
+    section.finalizado h4,
+    section.finalizado .h4,
+    section.publicado h4,
+    section.publicado .h4{
+        font-size: 14px;
+    }
+    section.publicado h2,
+    section.publicado .h2,
+    section.finalizado h2,
+    section.finalizado .h2{
+        font-size: 24px;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 768px) {
+/* Estilos CSS para pantallas pequeñas */
+    #sect1 h1, #sect1 .h1 {
+        font-size: 1.5rem;
+    }
+    .card .card-buttons a {
+       width: 100%;
+    }
+}
+@media screen and (max-width: 600px) {
+/* Estilos CSS para pantallas pequeñas */
+    .header-mobile-hidden {
+        display: none;
+    }
+    .header-mobile-show {
+        display: block;
+    }
+    .header {
+        padding: 84px 0 10px;
+    }
+    .card-body {
+        height: auto!important;
+    }
+    h3.h4.mb-3 {
+        font-size: 14px;
+    }
+    img.card-img-top.slick-slide.slick-current.slick-active {
+        height: 250px;
+    }
+}
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     video {
         width: auto!important;
@@ -65,55 +143,5 @@ p.text-strong {
     .form-group label {
         font-size: 12px;
     }
-    iframe#instagram-embed-0 {
-    min-width: auto!important;
+    iframe#instagram-embed-0 {min-width: auto!important}
 }
-}
-
-    @media screen and (max-width: 600px) {
-    /* Estilos CSS para pantallas pequeñas */
-        .header-mobile-hidden {
-            display: none;
-        }
-        .header-mobile-show {
-            display: block;
-        }
-        .header {
-            padding: 84px 0 10px;
-        }
-        .card-body {
-            height: auto!important;
-        }
-        h3.h4.mb-3 {
-            font-size: 14px;
-        }
-        img.card-img-top.slick-slide.slick-current.slick-active {
-            height: 250px;
-        }
-    }
-    @media screen and (max-width: 768px) {
-    /* Estilos CSS para pantallas pequeñas */
-        #sect1 h1, #sect1 .h1 {
-            font-size: 1.5rem;
-        }
-    }
-
-    .card {
-        background-color: #fff;
-        margin-bottom: 30px;
-        border: 1px solid #C82A54;
-    }
-    .card.finished {
-        background-color: #fff;
-        margin-bottom: 30px;
-        border: 1px solid black;
-    }
-    .card .card-buttons a {
-        margin: 2% 5%;
-        width: 90%;
-    }
-
-.sponsor img {
-    margin: 20px 20px;
-}
-

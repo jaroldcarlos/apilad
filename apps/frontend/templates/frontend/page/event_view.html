@@ -3,6 +3,7 @@
 {% load social_share %}
 {% load crispy_forms_tags %}
 {% load cookie_consent_tags %}
+{% load thumbnail %}
 
 {% block css %}
   <script src="https://kit.fontawesome.com/f98feef31b.js" crossorigin="anonymous"></script>
@@ -129,7 +130,9 @@
           <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
             <div class="image-wrapper">
               {% if event.image %}
-                <img class="img-fluid w-100" src="{{ event.image.url }}">
+                {% thumbnail event.image "800" crop="center" as im %}
+                    <img src="{{ im.url }}" class="img-fluid w-100" alt="{{ event.title }}">
+                {% endthumbnail %}
               {% endif %}
             </div>
           </div>
@@ -143,7 +146,6 @@
                     {% trans "compartir evento en twitter" as text_twitter %}
                     {% trans "compartir evento en telegram" as text_telegram %}
                     {% trans "compartir evento en whatsapp" as text_whatsapp %}
-
                     {% post_to_facebook event.get_absolute_url text_facebook 'facebook-link' %}
                     {% post_to_twitter event.description_short event.get_absolute_url text_twitter 'twitter-link' %}
                     {% post_to_telegram event.description_short event.get_absolute_url text_telegram 'telegram-link' %}
@@ -160,7 +162,9 @@
         {% if event.pictures.count >= 1 %}
           <div class="galleria">
             {% for picture in event.pictures.all %}
-            <img src="{{ picture.image.url }}">
+              {% thumbnail picture.image "400x400" crop="center" as im %}
+                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="card-img-top" alt="{{ picture.name }}">
+              {% endthumbnail %}
             {% endfor %}
           </div>
         {% endif %}
@@ -169,10 +173,12 @@
 {% endblock content %}
 
 {% block js %}
-  <script>
-    (function() {
-        Galleria.loadTheme('https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.7/themes/classic/galleria.classic.min.js');
-        Galleria.run('.galleria');
-    }());
-  </script>
+  {% if event.pictures.count >= 1 %}
+    <script>
+      (function() {
+          Galleria.loadTheme('https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.7/themes/classic/galleria.classic.min.js');
+          Galleria.run('.galleria');
+      }());
+    </script>
+  {% endif %}
 {% endblock js %}
