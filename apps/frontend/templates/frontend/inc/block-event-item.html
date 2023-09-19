@@ -48,7 +48,7 @@
 {% elif position == 'horizontal' %}
   <div id="id_{{event.pk }}" class="card mb-4 isotope-item {% if event.status == 'f' %}finished{% endif %}">
       <div class="row card-body">
-          <div class="col-md-4 mb-4 mb-md-0">
+          <div class="col-md-3 mb-4 mb-md-0">
             {% thumbnail event.image "200x250" crop="center" as im %}
               <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="card-img" alt="{{ event.title }}">
             {% endthumbnail %}
