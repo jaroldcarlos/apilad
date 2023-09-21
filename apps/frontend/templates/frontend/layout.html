@@ -49,7 +49,10 @@
     <link href="{% static 'frontend/css/custom.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/leaflet.css' %}"/>
     <script src="{% static 'js/leaflet.js' %}"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
+    {% comment %}
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
+    {% endcomment %}
+
     <script src="{% static 'others/simplelightbox/simple-lightbox.jquery.min.js' %}"></script>
     <style type="text/css" media="screen">
         body.with-cookie-bar {
@@ -108,7 +111,7 @@
             <div class="row align-items-center">
                 <div class="col-md-10 text-center text-md-left mb-4">
                     <ul class="list-inline footer-list mb-0">
-                        <li class="list-inline-item">&copy; {{ app_name }} {% now "Y" %}</li>
+                        <li class="list-inline-item">&copy; {{ app_name }} {% now "Y" as actual_year %}{% if '2022' == actual_year %}2022{% elif '2022' != actual_year %}2022 - {{ actual_year }}{% endif %}</li>
                         <li class="list-inline-item"><a href="{% url 'frontend:page' 'aviso-legal' %}">{% trans "Aviso Legal" %}</a></li>
                         <li class="list-inline-item"><a href="{% url 'frontend:page' 'politica-de-privacidad' %}">{% trans "Política de Privacidad" %}</a></li>
                         <li class="list-inline-item"><a href="{% url 'frontend:page' 'politica-de-cookies' %}">{% trans "Política de Cookies" %}</a></li>
