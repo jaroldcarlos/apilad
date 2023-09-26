@@ -142,7 +142,7 @@
           <div class="col-lg-5 col-md-6">
             <div class="content pl-lg-3 pl-0">
               <p style="font-size:1.5rem">{{ event.description|safe }}</p>
-              {% if event.ticket_purchase_link and event.status != 'f'%}
+              {% if event.ticket_purchase_link and event.status != 'f' %}
                 <div class="buttons mb-1">
                   <a href="{{ event.ticket_purchase_link }}" class="btn btn-outline-primary mb-1" target="_BLANK">{% trans "comprar entrada" %}</a>
                 </div>

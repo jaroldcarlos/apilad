@@ -2,7 +2,6 @@ from django.contrib.sites.models import Site
 from django.contrib.sites.managers import CurrentSiteManager
 from django.urls import reverse
 from django.db import models
-from django.utils import timezone
 from django.conf import settings
 from meta.models import ModelMeta
 from django.utils.translation import gettext_lazy as _
@@ -12,6 +11,7 @@ from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from .function import presave_resize_image, presave_quality_image
 
+from core.utils import validate_file_extension, validate_image
 from core.abstract import (
     AccesibilityModel,
     ActiveModel,
@@ -188,3 +188,27 @@ def pre_save_slug_place(sender, instance, **kwargs):
 def pre_save_slug_place(sender, instance, **kwargs):
     if instance.image:
         presave_quality_image(instance)
+
+class Promotion(ActiveModel):
+    image = ImageField(
+        _('image'),
+        upload_to='promotions/images/',
+        blank=True,
+        validators=[validate_file_extension, validate_image],
+        null=True
+    )
+    order = models.PositiveIntegerField(default=0, blank=False, null=False)
+    title = models.CharField(
+        _('title'),
+        max_length=200,
+    )
+    link = models.URLField(_('link'), null=True, blank=True, help_text=_('Link de evento'))
+    alt = models.CharField(_('alt'), max_length=255, blank=True, null=True, help_text=_('Texto alternativo para la imagen'))
+
+    def __str__(self):
+        return '{}'.format(self.title)
+
+    class Meta:
+        ordering = ('order',)
+        verbose_name = _('promoción')
+        verbose_name_plural = _('promociones')

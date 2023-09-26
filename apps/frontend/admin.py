@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from django.utils.translation import gettext_lazy as _
-from .models import Page, CategoryEvent, Event, Picture
+from .models import Page, CategoryEvent, Event, Picture, Promotion
 
 
 class PictureInline(admin.StackedInline):
@@ -67,4 +67,8 @@ class EventAdmin(admin.ModelAdmin):
     )
     save_on_top = True
 
-
+@admin.register(Promotion)
+class PromotionAdmin(admin.ModelAdmin):
+    list_display = ('title', 'active')
+    list_display_links = ('title', )
+    search_fields = ('title', )
