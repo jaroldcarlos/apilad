@@ -4,14 +4,20 @@
 {% if promotions.count >= 1 %}
     <section class="section" style="padding-top:0; padding-bottom: 20px;">
         <div class="section widget">
-            <h4 class="widget-title"><span>{% trans "Promociones" %}</span></h4>
+            <h4 class="widget-title"><span>{% trans "Cursos y Talleres" %}</span></h4>
             <div style="position:relative;width:100%;">
                 {% for promotion in promotions %}
-                    <div class="mb-1">
-                        <a href="{{ promotion.link }}">
-                            <img class="image" src="{{ promotion.image.url }}" alt="{{ promotion.alt }}" width="100%" />
-                        </a>
-                    </div>
+                    {% if promotion.image %}
+                        <div class="mb-1">
+                            {% if promotion.link %}
+                                <a href="{{ promotion.link }}">
+                                    <img class="image" src="{{ promotion.image.url }}" alt="{{ promotion.alt }}" width="100%" />
+                                </a>
+                            {% else %}
+                                <img class="image" src="{{ promotion.image.url }}" alt="{{ promotion.alt }}" width="100%" />
+                            {% endif %}
+                        </div>                    
+                    {% endif %}
                 {% endfor %}
             </div>
     </section>
