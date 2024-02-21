@@ -178,7 +178,6 @@ class Picture(models.Model):
     def __str__(self):
         return self.alt
 
-
 @receiver(pre_save, sender=Event)
 def pre_save_slug_place(sender, instance, **kwargs):
     if instance.image:
@@ -189,7 +188,8 @@ def pre_save_slug_place(sender, instance, **kwargs):
     if instance.image:
         presave_quality_image(instance)
 
-class Promotion(ActiveModel):
+
+class Promotion(ActiveModel, DescriptionModel, ModelMeta):
     image = ImageField(
         _('image'),
         upload_to='promotions/images/',
@@ -198,12 +198,9 @@ class Promotion(ActiveModel):
         null=True
     )
     order = models.PositiveIntegerField(default=0, blank=False, null=False)
-    title = models.CharField(
-        _('title'),
-        max_length=200,
-    )
+    title = models.CharField( _('title'), max_length=200)
     link = models.URLField(_('link'), null=True, blank=True, help_text=_('Link de evento'))
-    alt = models.CharField(_('alt'), max_length=255, blank=True, null=True, help_text=_('Texto alternativo para la imagen'))
+    alt = models.CharField(_('alt image'), max_length=255, blank=True, null=True, help_text=_('Texto alternativo para la imagen'))
 
     def __str__(self):
         return '{}'.format(self.title)
