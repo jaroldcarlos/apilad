@@ -19,12 +19,6 @@ def home(request):
         cookie_value = get_cookie_value_from_request(request, "optional")
         return cookie_value is True
 
-    events = Event.objects.all()
-    for event in events:
-        if not event.order:
-            event.order = event.pk
-            event.save()
-
     current_site = get_current_site(request)
     meta = Meta(
         title = _('Asociación para la inclusión laboral y atención a la diversidad'),
