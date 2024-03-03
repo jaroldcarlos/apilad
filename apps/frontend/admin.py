@@ -19,7 +19,7 @@ class CategoryEventAdmin(admin.ModelAdmin):
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('title', 'status', 'published_at')
+    list_display = ('order','title', 'status', 'published_at')
     list_display_links = ('title', )
     search_fields = ('title', )
     prepopulated_fields = {"slug": ("title",)}
@@ -31,7 +31,8 @@ class EventAdmin(admin.ModelAdmin):
             'fields': (
                 'published_at',
                 'expired_at',
-                'status'
+                'status',
+                'order'
             ),
         }),
         (_('CONTENT'), {

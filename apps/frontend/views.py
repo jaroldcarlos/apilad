@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 from meta.views import Meta
 from meta.views import MetadataMixin
+from django.contrib import messages
 
 from django.views.generic import TemplateView, DetailView, View
 from django.contrib.sites.shortcuts import get_current_site
@@ -17,6 +18,12 @@ def home(request):
             return True
         cookie_value = get_cookie_value_from_request(request, "optional")
         return cookie_value is True
+
+    events = Event.objects.all()
+    for event in events:
+        if not event.order:
+            event.order = event.pk
+            event.save()
 
     current_site = get_current_site(request)
     meta = Meta(
@@ -149,8 +156,9 @@ def event_list(request):
             ('http-equiv', 'Content-Type', 'text/html; charset=UTF-8'),
         ]
     )
-    event_list = Event.objects.exclude(status__in={'o','d'}).order_by('-status', 'published_at')
+    event_list = Event.objects.exclude(status__in={'o','d'}).order_by('-status', 'order')
     if not event_list:
+        messages.error(request, _('Sin eventos que mostrar'))
         return redirect('frontend:home')
     context = {
         'event_list':event_list,

@@ -120,7 +120,7 @@ class Event(
         blank=True,
         null=True,
     )
-
+    order = models.PositiveIntegerField(_('order'), blank=True, null=True)
     title = models.CharField(
         _('title'),
         max_length=200,
@@ -160,7 +160,7 @@ class Event(
     class Meta:
         verbose_name = _('event')
         verbose_name_plural = _('events')
-        ordering = ('-published_at',)
+        ordering = ('order',)
 
 
 class Picture(models.Model):
