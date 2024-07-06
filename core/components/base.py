@@ -44,7 +44,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #                                 #
 ###################################
 ALLOWED_HOSTS = [SERVER_DOMAIN, ]
-INTERNAL_IPS = [SERVER_DOMAIN, "127.0.0.1"]
+INTERNAL_IPS = [SERVER_DOMAIN, "www.apila.es", "127.0.0.1"]
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
