@@ -23,7 +23,9 @@
                     {% upcoming_events %}
                     {% include './inc/section-collaborate.html' %}
                     {% blog_featured %}
-                    {% include './inc/section-professional.html' %}
+                    {% comment %}
+                        {% include './inc/section-professional.html' %}
+                    {% endcomment %}
                     {% include './inc/section-contact.html' %}
             </div>
             {% if request|cookie_group_accepted:"functional" or view_promotion %}
