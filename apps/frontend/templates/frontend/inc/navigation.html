@@ -2,34 +2,45 @@
 {% load blog_tags %}
 
 <ul class="navbar-nav">
-    <li class="nav-item dropdown">
-      <a class="nav-link" href="{% url 'frontend:home' %}" >
-        {% trans "Inicio" %}
-      </a>
-    </li>
+    {% comment %}
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="{% url 'frontend:home' %}" >
+          {% trans "Inicio" %}
+        </a>
+      </li>
+    {% endcomment %}
     <li class="nav-item dropdown">
       <a class="nav-link">
-        {% trans "Nosotros" %}
+        {% trans "¿quienes somos?"|upper %}
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="{% url 'frontend:page' 'quienes-somos' %}">{% trans "¿quienes somos?"|title %}</a>
-        <a class="dropdown-item" href="{% url 'frontend:page' 'organigrama' %}">{% trans "organigrama"|title %}</a>
+        <a class="dropdown-item" href="{% url 'frontend:page' 'quienes-somos' %}">{% trans "nosotros"|title %}</a>
+        <a class="dropdown-item" href="{% url 'frontend:organigramme_view' %}">{% trans "organigrama"|title %}</a>
+        <a class="dropdown-item" href="{% url 'frontend:team_professional_view' %}">{% trans "equipo de profesional"|title %}</a>
+        <a class="dropdown-item" href="{% url 'frontend:team_volunteer_view' %}">{% trans "colaboradores"|title %}</a>
       </div>
     </li>
+    {% comment %}
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="{% url 'frontend:home' %}" >
+          {% trans "qué hacemos"|upper %}
+        </a>
+      </li>
+    {% endcomment %}
     <li class="nav-item dropdown">
       <a class="nav-link" href="{% url 'frontend:event_list' %}" >
-        {% trans "Eventos" %}
+        {% trans "Eventos"|upper %}
       </a>
     </li>
     <li class="nav-item dropdown">
       <a class="nav-link" href="{% url 'frontend:home' %}#section-collaborate" >
-        {% trans "Colaborar" %}
+        {% trans "Colaborar"|upper %}
       </a>
     </li>
     {% blog_menu %}
     <li class="nav-item dropdown">
       <a class="nav-link" href="{% url 'frontend:home' %}#section-contact" >
-        {% trans "Contactar" %}
+        {% trans "Contactar"|upper %}
       </a>
     </li>
   </ul>

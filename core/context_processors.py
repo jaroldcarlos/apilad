@@ -1,19 +1,17 @@
-# import git
 import re
 
 from django import db
 from django.contrib.sites.shortcuts import get_current_site
-from django.conf import settings
-from django.urls import resolve
 
 from apps.frontend.models import Promotion
 
 def custom_context(request):
-    MOBILE_AGENT_RE = re.compile(
+    '''Custom context processor for the frontend app'''
+    mobile_re = re.compile(
         r".*(iphone|mobile|androidtouch)",
         re.IGNORECASE
     )
-    if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
+    if mobile_re.match(request.META['HTTP_USER_AGENT']):
         mobile = True
     else:
         mobile = False

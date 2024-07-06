@@ -11,6 +11,9 @@ urlpatterns = [
     path('activate/<uidb64>/<token>', activate, name='activate'),
     path('proyecto/igualarte-teatro-e-inclusion.html', views.project_igualarte_teatro, name='project_igualarte_teatro'),
     path('asociacion/latramoya.html', views.latramoya_view , name='latramoya_view'),
+    path('quienes-somos/organigrama.html', views.organigramme_view, name='organigramme_view'),
+    path('quienes-somos/equipo-profesional.html', views.team_professional_view, name='team_professional_view'),
+    path('quienes-somos/colaboradores.html', views.team_volunteer_view, name='team_volunteer_view'),
     path('', views.home, name='home'),
 ]
 

@@ -5,7 +5,7 @@ from django.db import models
 from django.conf import settings
 from meta.models import ModelMeta
 from django.utils.translation import gettext_lazy as _
-from ckeditor.fields import RichTextField
+from tinymce.models import HTMLField as RichTextField
 from sorl.thumbnail import ImageField
 from django.db.models.signals import pre_save
 from django.dispatch import receiver

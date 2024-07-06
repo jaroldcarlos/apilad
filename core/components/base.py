@@ -82,9 +82,8 @@ THIRDPARTY_APPS = [
     'render_block',
     'rosetta',
     'sorl.thumbnail',
-    'ckeditor',
+    'tinymce',
     'meta',
-    #'corsheaders'
 ]
 LOCAL_APPS = [
     'apps.cookie_consent',
@@ -127,7 +126,7 @@ DJANGO_MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 LOCAL_MIDDLEWARE = [
-    # 'core.middleware.LoginRequiredMiddleware',  # All urls login required
+    #'core.middleware.LoginRequiredMiddleware',
     'core.middleware.UserBasedExceptionMiddleware',
 ]
 
@@ -215,5 +214,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
+
+ALLOWED_HOSTS = [SERVER_DOMAIN, 'localhost', ]

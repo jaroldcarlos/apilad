@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from ckeditor.fields import RichTextField
+from tinymce.models import HTMLField as RichTextField
 
 from .managers import ActiveManager, PublishedManager, ReadOnlyManager
 
@@ -234,31 +234,6 @@ class ModelIterable(models.Model):
     def show(self):
         for f in self:
             print(f)
-
-    class Meta:
-        abstract = True
-
-
-class GeoModel(models.Model):
-    """
-    An abstract base class model that provides geolocation fields.
-    ``latitude`` and ``longitude`` fields.
-    """
-    latitude = models.DecimalField(
-        _('latitude'),
-        max_digits=22,
-        decimal_places=16,
-        blank=True,
-        null=True
-    )
-    longitude = models.DecimalField(
-        _('longitude'),
-        max_digits=22,
-        decimal_places=16,
-        blank=True,
-        null=True
-    )
-    # location = models.PointField()
 
     class Meta:
         abstract = True

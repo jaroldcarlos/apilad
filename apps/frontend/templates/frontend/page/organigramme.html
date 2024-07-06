@@ -1,0 +1,33 @@
+{% extends "../layout.html" %}
+{% load i18n %}
+{% load static %}
+{% load sorl_thumbnail %}
+
+{% block css %}
+  <style>
+    #fullpage {
+      display: none;
+      position: absolute;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-repeat: no-repeat no-repeat;
+      background-position: center center;
+      background-color: black;
+    }
+    .full-width {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+{% endblock css %}
+
+{% block content %}
+    <section class="section pb-0 mt-5">
+        <img src="{% static 'frontend/images/organigrama.jpg' %}" class="full-width" alt="Organigrama">
+    </section>
+{% endblock content %}
+

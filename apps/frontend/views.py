@@ -1,18 +1,21 @@
+'''Views for the frontend app'''
+
 from django.shortcuts import render, get_object_or_404
 from django.conf import settings
-from meta.views import Meta
-from meta.views import MetadataMixin
 from django.contrib import messages
-
-from django.views.generic import TemplateView, DetailView, View
+from django.views.generic import DetailView
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.translation import gettext as _
-from .models import Page, Event
+from django.shortcuts import redirect
+
+from meta.views import Meta
 
 from apps.cookie_consent.util import get_cookie_value_from_request
+from .models import Page, Event
 
 
 def home(request):
+    '''Home view for the frontend app'''
     def _should_set_cookie() -> bool:
         if "force" in request.GET:
             return True
@@ -49,6 +52,7 @@ def home(request):
 
 
 def project_igualarte_teatro(request):
+    '''View for the project IgualArte: Teatro e Inclusión'''
     current_site = get_current_site(request)
     meta = Meta(
         title = _('IgualArte: Teatro e inclusión, uno de los proyectos de APILAD'),
@@ -71,6 +75,7 @@ def project_igualarte_teatro(request):
 
 
 def event_detail(request, slug):
+    '''View for the event detail'''
     event = get_object_or_404(Event, slug=slug)
     meta = Meta(
         title = event.meta_title,
@@ -94,18 +99,23 @@ def event_detail(request, slug):
     return render(request, template_name, context)
 
 def my_custom_page_not_found_view(request, exception):
+    '''Custom 404 view'''
     return render (request, 'errors/404.html', {})
 
 def custom_error_view(request, exception=None):
+    '''Custom 500 view'''
     return render(request, "errors/500.html", {})
 
 def custom_permission_denied_view(request, exception=None):
+    '''Custom 403 view'''
     return render(request, "errors/403.html", {})
 
 def custom_bad_request_view(request, exception=None):
+    '''Custom 400 view'''
     return render(request, "errors/400.html", {})
 
 class PageDetailView(DetailView):
+    '''View for the page detail'''
     model = Page
     template_name = 'frontend/page.html'
 
@@ -115,6 +125,7 @@ class PageDetailView(DetailView):
         return context
 
 def latramoya_view(request):
+    '''View for the page La Tramoya'''
     meta = Meta(
         title = _('La Tramoya, historia de un centro Ocupacional de Madrid'),
         description = 'La Tramoya surge en 1992 como una actividad terapéutica e inclusiva dentro de un Centro Ocupacional.La actividad se fue consolidando con el tiempo hasta llegar a conformarse en el año 2000 como compañía estable.',
@@ -136,6 +147,7 @@ def latramoya_view(request):
 
 
 def event_list(request):
+    '''View for the event list'''
     meta = Meta(
         title = _('Listado de eventos de la Asociación APILAD'),
         description = 'La página de listado de eventos ofrece una amplia variedad de opciones para explorar y participar en eventos emocionantes.',
@@ -160,3 +172,69 @@ def event_list(request):
     }
     template_name = 'frontend/page/event_list.html'
     return render(request, template_name, context)
+
+
+def organigramme_view(request):
+    '''View for the page Organigramme'''
+    meta = Meta(
+        title = _('Organigrama de la Asociación APILAD'),
+        description = 'El organigrama de la Asociación APILAD muestra la estructura de la Asociación y el equipo de trabajo',
+        keywords=['actividad', 'terapéutica', 'centro ocupacional', 'teatro'],
+        use_sites=True,
+        image='frontend/images/logo.jpeg',
+        extra_props={
+            'designer': 'ecDesignStudio',
+            'viewport': 'width=device-width, initial-scale=1.0, minimum-scale=1.0'
+        },
+        extra_custom_props=[
+            ('http-equiv', 'Content-Type', 'text/html; charset=UTF-8'),
+        ]
+    )
+    context = {
+        'meta':meta,
+    }
+    return render(request, 'frontend/page/organigramme.html', context)
+
+
+def team_professional_view(request):
+    '''View for the page Equipo Profesional'''
+    meta = Meta(
+        title = _('Equipo Profesional de la Asociación APILAD'),
+        description = 'El equipo profesional de la Asociación APILAD está formado por un grupo de profesionales comprometidos con la inclusión social y laboral de las personas con discapacidad intelectual',
+        keywords=['actividad', 'terapéutica', 'centro ocupacional', 'teatro'],
+        use_sites=True,
+        image='frontend/images/logo.jpeg',
+        extra_props={
+            'designer': 'ecDesignStudio',
+            'viewport': 'width=device-width, initial-scale=1.0, minimum-scale=1.0'
+        },
+        extra_custom_props=[
+            ('http-equiv', 'Content-Type', 'text/html; charset=UTF-8'),
+        ]
+    )
+    context = {
+        'meta':meta,
+    }
+    return render(request, 'frontend/page/team_professional.html', context)
+
+
+def team_volunteer_view(request):
+    '''View for the page Equipo de Voluntarios'''
+    meta = Meta(
+        title = _('Equipo de Voluntarios de la Asociación APILAD'),
+        description = 'El equipo de voluntarios de la Asociación APILAD está formado por un grupo de personas comprometidas con la inclusión social y laboral de las personas con discapacidad intelectual',
+        keywords=['actividad', 'terapéutica', 'centro ocupacional', 'teatro'],
+        use_sites=True,
+        image='frontend/images/logo.jpeg',
+        extra_props={
+            'designer': 'ecDesignStudio',
+            'viewport': 'width=device-width, initial-scale=1.0, minimum-scale=1.0'
+        },
+        extra_custom_props=[
+            ('http-equiv', 'Content-Type', 'text/html; charset=UTF-8'),
+        ]
+    )
+    context = {
+        'meta':meta,
+    }
+    return render(request, 'frontend/page/collaborate.html', context)

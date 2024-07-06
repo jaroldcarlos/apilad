@@ -1,0 +1,84 @@
+{% load i18n %}
+{% load static %}
+{% load thumbnail %}
+
+
+{% if posts %}
+<link rel="stylesheet" href="{% static 'others/OwlCarousel/assets/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'others/OwlCarousel/assets/owl.theme.default.min.css' %}">
+<script type="text/javascript" src="{% static 'others/OwlCarousel/owl.carousel.min.js' %}"></script>
+
+<style>
+    .owl-carousel .card-body {
+        height: 300px;
+    }
+</style>
+
+<section class="section pb-0" id="section-posts">
+  <div class="container">
+    <h2 class="h5 section-title">{% trans "Actualidad" %}</h2>
+    <div class="row">
+        <div class="owl-carousel owl-theme">
+        {% for post in posts %}
+            <div class="item">
+                <div class="card">
+                    <div class="post-slider slider-sm">
+                        {% thumbnail post.image "400x400" crop="center" as im %}
+                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="card-img-top" alt="{{ post.title }}">
+                        {% endthumbnail %}
+                    </div>
+                    <div class="card-body">
+                        <h3 class="h4 mb-3"><a class="post-title" href="{% url 'blog:post_detail' post.slug %}">{{ post.title }}</a></h3>
+                        {% comment %}
+                            <ul class="card-meta list-inline">
+                                {% if event.text_show_geo %}
+                                    <li class="list-inline-item">
+                                        <i class="ti-world"></i> {{ event.text_show_geo }}
+                                    </li>
+                                {% endif %}
+                                {% if event.text_show_date %}
+                                    <li class="list-inline-item">
+                                        <i class="ti-calendar"></i>{{ event.text_show_date }}
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        {% endcomment %}
+                        {{ post.excerpt|truncatechars:100 }}
+                        <br>
+                    </div>
+                    <a href="{% url 'blog:post_detail' post.slug %}" class="btn btn-outline-primary">{% trans "ver más" %}</a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        <hr>
+        <div class="text-center" style="width:100%">
+            <a href="{% url 'blog:post_list' %}" class="btn btn-primary">{% trans "ver todos las actualidades" %}</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    responsiveClass:true,
+    nav:false,
+    autoplay:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:1,
+            nav:false
+        },
+        1000:{
+            items:3,
+            nav:true,
+            loop:false
+        }}
+    });
+</script>
+{% endif %}
