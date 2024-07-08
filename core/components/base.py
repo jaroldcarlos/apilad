@@ -43,8 +43,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #     \___/|_| \_\_____|____/     #
 #                                 #
 ###################################
-ALLOWED_HOSTS = [SERVER_DOMAIN, ]
-INTERNAL_IPS = [SERVER_DOMAIN, "www.apila.es", "127.0.0.1"]
+ALLOWED_HOSTS = [SERVER_DOMAIN, "www.apilad.es", "apilad.es", "localhost", "127.0.0.1"]
+INTERNAL_IPS = [SERVER_DOMAIN, ]
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
@@ -216,5 +216,3 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
-
-ALLOWED_HOSTS = [SERVER_DOMAIN, 'localhost', ]
