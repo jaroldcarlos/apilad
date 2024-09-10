@@ -1,11 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.views import generic
 from django.urls import reverse
-from meta.views import Meta
 from django.contrib import messages
 from django.utils.translation import gettext as _
 
-from .models import Post, Category, Tag, Author, Picture, Comment
+from meta.views import Meta
+from .models import Post, Category, Tag, Author, Comment
 
 from .forms import CommentForm
 

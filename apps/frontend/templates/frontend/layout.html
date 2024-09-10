@@ -5,7 +5,9 @@
 {% load custom_tags %}
 {% load cookie_consent_tags %}
 
-<html lang="es">
+{% get_current_language as LANGUAGE_CODE %}
+
+<html lang={{LANGUAGE_CODE}}>
 <head {% meta_namespaces %}>
     {% if not debug %}
         {% if request|cookie_group_accepted:"performance" %}
@@ -49,9 +51,6 @@
     <link href="{% static 'frontend/css/custom.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/leaflet.css' %}"/>
     <script src="{% static 'js/leaflet.js' %}"></script>
-    {% comment %}
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
-    {% endcomment %}
 
     <script src="{% static 'others/simplelightbox/simple-lightbox.jquery.min.js' %}"></script>
     <style type="text/css" media="screen">
@@ -100,9 +99,14 @@
             <div class="row">
                 <div class="col-md-12 text-center mx-auto mb-4 sponsor">
                     <img src="{% static 'frontend/images/patrocinadores/logo-arganzuela.png' %}" width="180" alt="logo de arganzuela" title="logo de arganzuela">
-                    <img src="{% static 'frontend/images/patrocinadores/logo-fotografia-cine.png' %}" width="180" alt="logo de fotografia-cine" title="logo de fotografia-cine">
+                    <a href="https://plenainclusionmadrid.org/" target="_BLANK" title="Plena Inclusión">
+                        <img src="{% static 'frontend/images/patrocinadores/plena-inclusion.jpg' %}" width="180" alt="logo de plena inclusión" title="logo de plena inclusión">
+                    </a>
+                    <a href="https://erasmus-plus.ec.europa.eu/es" target="_BLANK" title="erasmus-plus">
+                        <img src="{% static 'frontend/images/patrocinadores/Kofinanziert.jpg' %}" width="180" alt="logo de erasmus-plus" title="logo de erasmus-plus">
+                    </a>
                     <a href="https://ecdesign.es/" target="_blank" title="ecdesignStudio">
-                        <img src="{% static 'frontend/images/patrocinadores/logo-ecdesign.svg' %}" width="120" height="140" alt="logo de ecdesignStudio" title="logo de ecdesignStudio">
+                        <img src="{% static 'frontend/images/patrocinadores/logo-ecdesign.svg' %}" width="120" height="140" alt="logo de ecdesignStudio" title="logo de ecDesign Studio">
                     </a>
                     <img src="{% static 'frontend/images/patrocinadores/logo-akela.png' %}" width="60" height="60" alt="logo de akela" title="logo de akela">
                     <img src="{% static 'frontend/images/patrocinadores/logo-ilustradora.jpg' %}" width="80" height="80" alt="logo de ilustradora" title="logo de ilustradora">
@@ -123,10 +127,6 @@
                         <li class="list-inline-item"><a target="_BLANK" href="https://twitter.com/APILADpozuelo"><i class="ti-twitter-alt"></i></a></li>
                         <li class="list-inline-item"><a target="_BLANK" href="https://www.instagram.com/apiladpozuelo/"><i class="ti-instagram"></i></a></li>
                         <li class="list-inline-item"><a target="_BLANK" href="mailto:apiladasociacion@gmail.com"><i class="ti-envelope"></i></a></li>
-                        {% comment %}
-                        <li class="list-inline-item"><a href="#"><i class="ti-github"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="ti-youtube"></i></a></li>
-                        {% endcomment %}
                     </ul>
                 </div>
                 <div class="col-12">
