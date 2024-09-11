@@ -141,7 +141,7 @@ class Post(ActiveModel, SlugModel, PublishedModel, TimeStampedModel, ModelMeta):
     class Meta:
         verbose_name = _('new')
         verbose_name_plural = _('news')
-        ordering = ['-published_at']
+        ordering = ['published_at']
 
 
 class Picture(models.Model):
